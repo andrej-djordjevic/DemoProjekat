@@ -1,4 +1,4 @@
-import './CSS/subHeader.scss';
+import '../CSS/subHeader.scss';
 import { useEffect, useState } from 'react';
 import type { FilterParams } from '../services/Characters';
 import type React from 'react';

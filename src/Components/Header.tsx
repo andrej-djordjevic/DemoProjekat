@@ -1,4 +1,4 @@
-import './CSS/header.scss';
+import '../CSS/header.scss';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 import { authStore } from '../auth.store';

@@ -4,7 +4,7 @@ import {
   type FilterParams,
   type PageInfo,
 } from '../services/Characters';
-import './CSS/characters.scss';
+import '../CSS/characters.scss';
 import { useEffect, useState } from 'react';
 import { Loader } from './Loader';
 
