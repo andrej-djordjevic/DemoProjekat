@@ -1,0 +1,34 @@
+@use './variables' as *;
+
+.login-page {
+  .login-button {
+    border-radius: 0;
+    font-weight: 900;
+    font-style: italic;
+    background-color: $color-primary;
+    margin-top: 20px;
+    font-size: large;
+  }
+  background-color: $color-primary;
+  .login-form {
+    display: flex;
+    flex-direction: column;
+
+    .ant-form-item {
+      width: 70%;
+      align-self: center;
+
+      .ant-input,
+      .ant-input-password {
+        border-radius: 0;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.LoginError {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+}
