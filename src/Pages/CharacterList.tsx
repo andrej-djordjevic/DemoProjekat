@@ -1,3 +1,5 @@
+import { Header } from '../Header';
+
 export default function CharacterList() {
-  return <div>Character List Page</div>;
+  return <Header />;
 }

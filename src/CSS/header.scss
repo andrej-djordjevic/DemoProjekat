@@ -1,0 +1,104 @@
+@use './variables' as *;
+
+.app-header {
+  height: 60px;
+  background: $color-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+#overlayBtn {
+  margin: 0;
+  padding: 3px;
+}
+
+.burger {
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0;
+
+  span {
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+  }
+}
+
+.burger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100vh;
+  background: #00ff00;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1001;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  button {
+    background: #fff;
+    border: 1px solid #434343;
+    padding: 8px;
+    cursor: pointer;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.258);
+  z-index: 1000;
+}
+
+@media (min-width: 600px) {
+  .burger {
+    display: none;
+  }
+
+  .burger-menu {
+    position: static;
+    height: auto;
+    width: auto;
+    transform: none;
+    transition: none;
+    background: transparent;
+    padding: 0;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .burger-menu button {
+    background-color: #3dc115;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
