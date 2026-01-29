@@ -1,6 +1,6 @@
 import { Form, Input, Button, Card } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import '../CSS/_login.scss';
+import '../CSS/login.scss';
 import { useState } from 'react';
 import { authStore } from '../auth.store';
 import { observer } from 'mobx-react-lite';
