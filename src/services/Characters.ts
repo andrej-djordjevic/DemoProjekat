@@ -7,6 +7,7 @@ export interface Character {
   species: string;
   gender: string;
   image: string;
+  location: { name: string; url: string };
 }
 
 export interface PageInfo {

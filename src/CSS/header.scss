@@ -11,6 +11,9 @@
 
 .logo {
   font-weight: 700;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 #overlayBtn {

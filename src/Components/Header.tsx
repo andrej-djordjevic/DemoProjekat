@@ -22,7 +22,20 @@ export const Header = observer(({ setFilters }: Props) => {
   return (
     <>
       <header className="app-header">
-        <div className="logo">LOGO</div>
+        <div
+          className="logo"
+          onClick={() => {
+            setFilters({
+              name: '',
+              species: '',
+              status: '',
+              gender: '',
+            });
+            navigate('/');
+          }}
+        >
+          LOGO
+        </div>
 
         <button
           className={`burger ${open ? 'open' : ''}`}
