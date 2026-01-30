@@ -7,6 +7,7 @@ import {
 import '../CSS/characters.scss';
 import { useEffect, useState } from 'react';
 import { Loader } from './Loader';
+import { CharacterModal } from './CharacterModal';
 
 export const Characters = ({ filters }: { filters?: FilterParams }) => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -15,6 +16,11 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
 
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
+    null,
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setPage(1);
@@ -42,6 +48,16 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
     load();
   }, [page, filters]);
 
+  const handleCharacterClick = (character: Character) => {
+    setSelectedCharacter(character);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCharacter(null);
+  };
+
   if (loading) return <Loader />;
   if (error) return <p className="error">{error}</p>;
 
@@ -49,7 +65,11 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
     <div>
       <div className="charactersGrid">
         {characters.map((character) => (
-          <div key={character.id}>
+          <div
+            key={character.id}
+            onClick={() => handleCharacterClick(character)}
+            className="character-card"
+          >
             <img
               className="characterImage"
               src={character.image}
@@ -81,6 +101,11 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
           Next
         </button>
       </div>
+      <CharacterModal
+        character={selectedCharacter}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

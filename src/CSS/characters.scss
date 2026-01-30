@@ -1,3 +1,17 @@
+.character-card {
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.character-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .charactersGrid {
   margin-top: 20px;
   display: grid;

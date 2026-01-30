@@ -3,8 +3,13 @@ import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 import { authStore } from '../auth.store';
 import { useState } from 'react';
+import type { FilterParams } from '../services/Characters';
 
-export const Header = observer(() => {
+interface Props {
+  setFilters: (f: FilterParams) => void;
+}
+
+export const Header = observer(({ setFilters }: Props) => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
@@ -29,7 +34,18 @@ export const Header = observer(() => {
         </button>
 
         <nav className={`burger-menu ${open ? 'open' : ''}`}>
-          <button id="overlayBtn" onClick={() => navigate('/favorites')}>
+          <button
+            id="overlayBtn"
+            onClick={() => {
+              setFilters({
+                name: '',
+                species: '',
+                status: '',
+                gender: '',
+              });
+              navigate('/favorites');
+            }}
+          >
             favorites
           </button>
           <button id="overlayBtn" onClick={logout}>
