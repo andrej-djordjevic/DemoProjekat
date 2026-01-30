@@ -82,10 +82,10 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
         onChange={onChange('gender')}
       >
         <option value="">GENDER</option>
-        <option value="male">Male</option>
-        <option value="genderless">Genderless</option>
-        <option value="female">Female</option>
-        <option value="unknown">Unknown</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Genderless">Genderless</option>
+        <option value="Unknown">Unknown</option>
       </select>
       <button className="searchBtn" type="submit">
         SEARCH

@@ -7,6 +7,7 @@ import {
 import '../CSS/characters.scss';
 import { useEffect, useState } from 'react';
 import { Loader } from './Loader';
+import { CharacterGrid } from './CharacterGrid';
 import { CharacterModal } from './CharacterModal';
 
 export const Characters = ({ filters }: { filters?: FilterParams }) => {
@@ -63,22 +64,10 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
 
   return (
     <div>
-      <div className="charactersGrid">
-        {characters.map((character) => (
-          <div
-            key={character.id}
-            onClick={() => handleCharacterClick(character)}
-            className="character-card"
-          >
-            <img
-              className="characterImage"
-              src={character.image}
-              alt={character.name}
-            />
-            <p>{character.name}</p>
-          </div>
-        ))}
-      </div>
+      <CharacterGrid
+        characters={characters}
+        onCharacterClick={handleCharacterClick}
+      />
 
       <div className="pagination">
         <button

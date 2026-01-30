@@ -52,6 +52,19 @@ export class FavoritesStore {
       this.addToFavorites(character);
     }
   }
+
+  updateFavorite(characterId: number, updatedCharacter: Character) {
+    runInAction(() => {
+      const index = this.favorites.findIndex((char) => char.id === characterId);
+      if (index !== -1) {
+        this.favorites[index] = {
+          ...this.favorites[index],
+          ...updatedCharacter,
+        };
+        this.saveFavorites();
+      }
+    });
+  }
 }
 
 export const favoritesStore = new FavoritesStore();

@@ -4,7 +4,7 @@ import type { FilterParams } from '../services/Characters';
 import type { Dispatch, SetStateAction } from 'react';
 import { favoritesStore } from '../favorites.store';
 import { observer } from 'mobx-react-lite';
-import '../CSS/characters.scss';
+import { CharacterGrid } from '../Components/CharacterGrid';
 import { CharacterModal } from '../Components/CharacterModal';
 import { useState } from 'react';
 import type { Character } from '../services/Characters';
@@ -39,7 +39,7 @@ const Favorites = observer(({ filters, setFilters }: Props) => {
     }
     if (
       filters.species &&
-      character.species.toLowerCase() !== filters.species.toLowerCase()
+      !character.species?.toLowerCase().includes(filters.species.toLowerCase())
     ) {
       return false;
     }
@@ -73,28 +73,17 @@ const Favorites = observer(({ filters, setFilters }: Props) => {
             No favorites match the current filters.
           </p>
         ) : (
-          <div className="charactersGrid">
-            {filteredFavorites.map((character) => (
-              <div
-                key={character.id}
-                className="character-card"
-                onClick={() => handleCharacterClick(character)}
-              >
-                <img
-                  className="characterImage"
-                  src={character.image}
-                  alt={character.name}
-                />
-                <p>{character.name}</p>
-              </div>
-            ))}
-          </div>
+          <CharacterGrid
+            characters={filteredFavorites}
+            onCharacterClick={handleCharacterClick}
+          />
         )}
       </div>
       <CharacterModal
         character={selectedCharacter}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
+        allowEditing={true}
       />
     </div>
   );
