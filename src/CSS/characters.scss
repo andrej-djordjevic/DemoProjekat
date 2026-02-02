@@ -1,3 +1,5 @@
+@use '../CSS/variables' as *;
+
 .character-card {
   cursor: pointer;
   transition:
@@ -28,7 +30,6 @@
     max-width: 150px;
     height: auto;
     display: block;
-    
   }
 }
 
@@ -49,8 +50,38 @@
   justify-content: center;
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 12px 0 16px;
+  gap: 16px;
+  margin: 24px 0 24px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 12px 24px;
+}
+
+.pagination button {
+  background: $color-green;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(32, 139, 192, 0.08);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-weight: 600;
+  color: $color-green;
+  padding: 4px 12px;
 }
 
 .pagination button:disabled {

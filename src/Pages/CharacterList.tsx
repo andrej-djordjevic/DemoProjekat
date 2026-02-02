@@ -1,6 +1,6 @@
 import { Characters } from '../Components/Characters';
-import { Header } from '../Components/Header';
-import { SubHeader } from '../Components/SubHeader';
+import { Header } from '../Components/Header/Header';
+import { SubHeader } from '../Components/SubHeader/SubHeader';
 import type { FilterParams } from '../services/Characters';
 
 type Props = {
