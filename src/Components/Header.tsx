@@ -26,10 +26,10 @@ export const Header = observer(({ setFilters }: Props) => {
           className="logo"
           onClick={() => {
             setFilters({
-              name: '',
-              species: '',
-              status: '',
-              gender: '',
+              name: undefined,
+              species: undefined,
+              status: undefined,
+              gender: undefined,
             });
             navigate('/');
           }}
@@ -51,10 +51,10 @@ export const Header = observer(({ setFilters }: Props) => {
             id="overlayBtn"
             onClick={() => {
               setFilters({
-                name: '',
-                species: '',
-                status: '',
-                gender: '',
+                name: undefined,
+                species: undefined,
+                status: undefined,
+                gender: undefined,
               });
               navigate('/favorites');
             }}

@@ -14,10 +14,10 @@ interface Props {
 
 export const SubHeader = ({ filters, setFilters }: Props) => {
   const [local, setLocal] = useState<FilterParams>({
-    name: '',
-    species: '',
-    status: '',
-    gender: '',
+    name: undefined,
+    species: undefined,
+    status: undefined,
+    gender: undefined,
   });
 
   useEffect(() => {
@@ -30,8 +30,8 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
         setFilters({
           name: (local.name || '').trim(),
           species: (local.species || '').trim(),
-          status: (local.status || '').trim(),
-          gender: (local.gender || '').trim(),
+          status: local.status || undefined,
+          gender: local.gender || undefined,
         });
       }
     }, 500);
@@ -51,8 +51,8 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
     setFilters({
       name: (local.name || '').trim(),
       species: (local.species || '').trim(),
-      status: (local.status || '').trim(),
-      gender: (local.gender || '').trim(),
+      status: local.status || undefined,
+      gender: local.gender || undefined,
     });
   };
 

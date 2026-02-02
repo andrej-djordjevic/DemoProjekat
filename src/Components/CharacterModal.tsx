@@ -36,6 +36,12 @@ export const CharacterModal = observer(
       }
     }, [character, form]);
 
+    useEffect(() => {
+      if (!isOpen) {
+        setIsEditing(false);
+      }
+    }, [isOpen]);
+
     if (!character) return null;
 
     const isFavorite = favoritesStore.isFavorite(character.id);

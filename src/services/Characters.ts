@@ -14,18 +14,17 @@ export interface Character {
   location: { name: string; url: string };
 }
 
-export const genderOptions = [
-  { value: 'Male', label: 'Male' },
-  { value: 'Female', label: 'Female' },
-  { value: 'Genderless', label: 'Genderless' },
-  { value: 'unknown', label: 'Unknown' },
-];
+export const GENDERS: Gender[] = ['Male', 'Female', 'Genderless', 'unknown'];
+export const STATUSES: Status[] = ['Alive', 'Dead', 'unknown'];
 
-export const statusOptions = [
-  { value: 'Alive' as Status, label: 'Alive' },
-  { value: 'Dead' as Status, label: 'Dead' },
-  { value: 'unknown' as Status, label: 'Unknown' },
-];
+export const genderOptions = GENDERS.map((gender) => ({
+  value: gender,
+  label: gender,
+}));
+export const statusOptions = STATUSES.map((status) => ({
+  value: status,
+  label: status,
+}));
 
 export interface PageInfo {
   count: number;
@@ -42,8 +41,8 @@ interface CharactersResponse {
 export interface FilterParams {
   name?: string;
   species?: string;
-  status?: string;
-  gender?: string;
+  status?: Status;
+  gender?: Gender;
 }
 
 export interface ServiceResult<T> {

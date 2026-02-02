@@ -1,34 +1,85 @@
 @use './variables' as *;
 
+
 .login-page {
-  .login-button {
-    border-radius: 0;
-    font-weight: 900;
-    font-style: italic;
-    background-color: $color-primary;
-    margin-top: 20px;
-    font-size: large;
-  }
   background-color: $color-primary;
-  .login-form {
-    display: flex;
-    flex-direction: column;
+}
 
-    .ant-form-item {
-      width: 70%;
-      align-self: center;
+.login-centered {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-      .ant-input,
-      .ant-input-password {
-        border-radius: 0;
-        font-style: italic;
-      }
-    }
-  }
+.login-card {
+  width: 450px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0px;
+  border: 2px solid black;
+  justify-content: center;
+  background-color: #808080;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-item {
+  width: 80% !important;
+  align-self: center;
+}
+
+.login-button {
+  border-radius: 0;
+  font-weight: 900;
+  font-style: italic;
+  background-color: $color-primary;
+  margin-top: 20px;
+  font-size: large;
+}
+
+.login-error-margin {
+  margin: 0 0 0 10%;
 }
 
 .LoginError {
   color: red;
   font-style: italic;
   font-weight: bold;
+}
+
+.LoginError {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.login-centered {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 450px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0px;
+  border: 2px solid black;
+  justify-content: center;
+  background-color: #808080;
+}
+
+.login-form-item {
+  width: 80% !important;
+}
+
+.login-error-margin {
+  margin: 0 0 0 10%;
 }
