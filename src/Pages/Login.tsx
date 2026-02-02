@@ -1,4 +1,5 @@
 import { Form, Input, Button, Card } from 'antd';
+import { Loader } from '../Components/Loader';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/login.scss';
 import { useState } from 'react';
@@ -23,6 +24,7 @@ export default observer(function Login() {
   return (
     <div className="login-page login-centered">
       <Card className="login-card">
+        {authStore.loading && <Loader />}
         <Form
           onFinish={onFinish}
           disabled={authStore.loading}

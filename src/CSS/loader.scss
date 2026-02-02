@@ -1,11 +1,15 @@
 .loader {
-  margin: 24px auto;
+  position: absolute;
+  top: calc(50% - 24px);
+  left: calc(50% - 24px);
+
   width: 48px;
   height: 48px;
   border: 6px solid #ddd;
   border-top-color: #333;
   border-radius: 50%;
   animation: spin 0.9s linear infinite;
+  z-index: 2000;
 }
 
 @keyframes spin {

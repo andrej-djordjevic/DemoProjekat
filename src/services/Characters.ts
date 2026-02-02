@@ -50,10 +50,20 @@ export interface ServiceResult<T> {
   error: string | null;
 }
 
+const characterCache = new Map<string, ServiceResult<CharactersResponse>>();
+
+function makeCacheKey(page: number, filters: FilterParams) {
+  return JSON.stringify({ page, ...filters });
+}
+
 export const getCharacters = async (
   page = 1,
   filters: FilterParams = {},
 ): Promise<ServiceResult<CharactersResponse>> => {
+  const cacheKey = makeCacheKey(page, filters);
+  if (characterCache.has(cacheKey)) {
+    return characterCache.get(cacheKey)!;
+  }
   try {
     const params: Record<string, unknown> = { page };
 
@@ -67,13 +77,16 @@ export const getCharacters = async (
       { params },
     );
 
-    return { data: response.data, error: null };
+    const result = { data: response.data, error: null };
+    characterCache.set(cacheKey, result);
+    return result;
   } catch (err) {
     const error =
       err instanceof AxiosError
         ? (err.response?.data?.error ?? 'API error')
         : 'Unknown error';
-
-    return { data: null, error };
+    const result = { data: null, error };
+    characterCache.set(cacheKey, result);
+    return result;
   }
 };
