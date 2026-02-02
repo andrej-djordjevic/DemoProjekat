@@ -1,14 +1,31 @@
 import axios, { AxiosError } from 'axios';
 
+export type Gender = 'Male' | 'Female' | 'Genderless' | 'unknown';
+
+export type Status = 'Alive' | 'Dead' | 'unknown';
+
 export interface Character {
   id: number;
   name: string;
-  status: string;
+  status: Status;
   species: string;
-  gender: string;
+  gender: Gender;
   image: string;
   location: { name: string; url: string };
 }
+
+export const genderOptions = [
+  { value: 'Male', label: 'Male' },
+  { value: 'Female', label: 'Female' },
+  { value: 'Genderless', label: 'Genderless' },
+  { value: 'unknown', label: 'Unknown' },
+];
+
+export const statusOptions = [
+  { value: 'Alive' as Status, label: 'Alive' },
+  { value: 'Dead' as Status, label: 'Dead' },
+  { value: 'unknown' as Status, label: 'Unknown' },
+];
 
 export interface PageInfo {
   count: number;
@@ -29,7 +46,6 @@ export interface FilterParams {
   gender?: string;
 }
 
-/* 👇 unified result type */
 export interface ServiceResult<T> {
   data: T | null;
   error: string | null;

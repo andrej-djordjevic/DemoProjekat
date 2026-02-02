@@ -125,16 +125,11 @@
   border-radius: 8px;
   border: 1px solid #e9ecef;
 }
-
 .detail-item {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #e9ecef;
-}
-
-.detail-item:last-child {
-  border-bottom: none;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .detail-label {
@@ -196,4 +191,25 @@
 .favorite-button:active {
   transform: scale(0.9);
   transition: transform 0.1s ease;
+}
+
+.modal-form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.modal-centered .ant-modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.name-input {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.edit-input {
+  width: 150px;
 }

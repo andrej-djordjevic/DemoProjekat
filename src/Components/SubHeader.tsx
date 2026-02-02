@@ -1,6 +1,10 @@
 import '../CSS/subHeader.scss';
 import { useEffect, useState } from 'react';
-import type { FilterParams } from '../services/Characters';
+import {
+  genderOptions,
+  statusOptions,
+  type FilterParams,
+} from '../services/Characters';
 import type React from 'react';
 
 interface Props {
@@ -72,9 +76,11 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
         onChange={onChange('status')}
       >
         <option value="">STATUS</option>
-        <option value="Alive">Alive</option>
-        <option value="Dead">Dead</option>
-        <option value="unknown">Unknown</option>
+        {statusOptions.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
       </select>
       <select
         className="filterInput"
@@ -82,10 +88,11 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
         onChange={onChange('gender')}
       >
         <option value="">GENDER</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="Unknown">Unknown</option>
+        {genderOptions.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
       </select>
       <button className="searchBtn" type="submit">
         SEARCH
