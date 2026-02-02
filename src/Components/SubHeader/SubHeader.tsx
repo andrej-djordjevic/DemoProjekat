@@ -1,10 +1,10 @@
-import '../CSS/subHeader.scss';
+import './subHeader.scss';
 import { useEffect, useState } from 'react';
 import {
   genderOptions,
   statusOptions,
   type FilterParams,
-} from '../services/Characters';
+} from '../../services/Characters';
 import type React from 'react';
 
 interface Props {

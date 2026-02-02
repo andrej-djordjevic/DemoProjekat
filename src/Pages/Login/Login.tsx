@@ -1,9 +1,9 @@
 import { Form, Input, Button, Card } from 'antd';
-import { Loader } from '../Components/Loader';
+import { Loader } from '../../Components/Loader/Loader';
 import { useNavigate } from 'react-router-dom';
-import '../CSS/login.scss';
+import './login.scss';
 import { useState } from 'react';
-import { authStore } from '../auth.store';
+import { authStore } from '../../stores/auth.store';
 import { observer } from 'mobx-react-lite';
 
 export default observer(function Login() {

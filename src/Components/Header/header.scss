@@ -1,8 +1,8 @@
-@use './variables' as *;
+@use '../../CSS/variables' as *;
 
 .app-header {
   height: 60px;
-  background: $color-secondary;
+  background: $color-dark-grey;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -94,7 +94,7 @@
   }
 
   .burger-menu button {
-    background-color: #3dc115;
+    background-color: $color-green;
     border: none;
     font-size: 14px;
     cursor: pointer;

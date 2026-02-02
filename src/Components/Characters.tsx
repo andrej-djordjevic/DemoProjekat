@@ -6,7 +6,7 @@ import {
 } from '../services/Characters';
 import '../CSS/characters.scss';
 import { useEffect, useState } from 'react';
-import { Loader } from './Loader';
+import { Loader } from './Loader/Loader';
 import { CharacterGrid } from './CharacterGrid';
 import { CharacterModal } from './CharacterModal';
 

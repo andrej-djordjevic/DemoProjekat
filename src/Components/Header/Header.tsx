@@ -1,9 +1,9 @@
-import '../CSS/header.scss';
+import '../Header/header.scss';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
-import { authStore } from '../auth.store';
+import { authStore } from '../../stores/auth.store';
 import { useState } from 'react';
-import type { FilterParams } from '../services/Characters';
+import type { FilterParams } from '../../services/Characters';
 
 interface Props {
   setFilters: (f: FilterParams) => void;

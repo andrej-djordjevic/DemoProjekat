@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Suspense, useState } from 'react';
 import { lazy } from 'react';
-const Login = lazy(() => import('./Pages/Login'));
+const Login = lazy(() => import('./Pages/Login/Login'));
 const CharacterList = lazy(() => import('./Pages/CharacterList'));
 import { ProtectedLayout } from './ProtectedLayout';
 import './CSS/main.scss';

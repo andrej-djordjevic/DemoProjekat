@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import { authStore } from './auth.store';
+import { authStore } from './stores/auth.store';
 
 export const ProtectedLayout = observer(() => {
   if (!authStore.isLoggedIn) {

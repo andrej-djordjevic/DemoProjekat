@@ -1,7 +1,7 @@
 import '../CSS/characterModal.scss';
 import type { Character, Gender, Status } from '../services/Characters';
 import { genderOptions, statusOptions } from '../services/Characters';
-import { favoritesStore } from '../favorites.store';
+import { favoritesStore } from '../stores/favorites.store';
 import { observer } from 'mobx-react-lite';
 import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';

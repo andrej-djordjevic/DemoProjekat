@@ -83,7 +83,8 @@ export const getCharacters = async (
   } catch (err) {
     const error =
       err instanceof AxiosError
-        ? (err.response?.data?.error ?? 'API error')
+        ? (err.response?.data?.error ??
+          err.message + ' - ' + 'API request failed')
         : 'Unknown error';
     const result = { data: null, error };
     characterCache.set(cacheKey, result);

@@ -1,13 +1,13 @@
-import { Header } from '../Components/Header';
-import { SubHeader } from '../Components/SubHeader';
+import { Header } from '../Components/Header/Header';
+import { SubHeader } from '../Components/SubHeader/SubHeader';
 import type { FilterParams } from '../services/Characters';
 import type { Dispatch, SetStateAction } from 'react';
-import { favoritesStore } from '../favorites.store';
 import { observer } from 'mobx-react-lite';
 import { CharacterGrid } from '../Components/CharacterGrid';
 import { CharacterModal } from '../Components/CharacterModal';
 import { useState } from 'react';
 import type { Character } from '../services/Characters';
+import { favoritesStore } from '../stores/favorites.store';
 
 type Props = {
   filters: FilterParams;

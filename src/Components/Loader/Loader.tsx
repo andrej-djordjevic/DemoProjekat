@@ -1,4 +1,4 @@
-import '../CSS/loader.scss';
+import './loader.scss';
 
 export const Loader = () => {
   return <div className="loader" aria-label="Loading" />;
