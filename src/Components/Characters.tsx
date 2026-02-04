@@ -5,29 +5,36 @@ import {
   type PageInfo,
 } from '../services/Characters';
 import '../CSS/characters.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Loader } from './Loader/Loader';
 import { CharacterGrid } from './CharacterGrid';
-import { CharacterModal } from './CharacterModal';
+import { CharacterModal } from './CharacterModal/CharacterModal';
+import { Pagination } from './Pagination';
 
 export const Characters = ({ filters }: { filters?: FilterParams }) => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [info, setInfo] = useState<PageInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
-
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
     null,
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const skipNextFetch = useRef(false);
 
   useEffect(() => {
-    setPage(1);
+    if (page !== 1) {
+      skipNextFetch.current = true;
+      setPage(1);
+    }
   }, [filters]);
 
   useEffect(() => {
+    if (skipNextFetch.current) {
+      skipNextFetch.current = false;
+      return;
+    }
     const load = async () => {
       setLoading(true);
       setError(null);
@@ -69,27 +76,15 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
         onCharacterClick={handleCharacterClick}
       />
 
-      <div className="pagination">
-        <button
-          onClick={() => setPage((p) => Math.max(1, p - 1))}
-          disabled={!info?.prev}
-        >
-          Prev
-        </button>
+      <Pagination
+        page={page}
+        totalPages={info?.pages}
+        hasPrev={!!info?.prev}
+        hasNext={!!info?.next}
+        onPrev={() => setPage((p) => Math.max(1, p - 1))}
+        onNext={() => setPage((p) => (info ? Math.min(info.pages, p + 1) : p))}
+      />
 
-        <span>
-          Page {page} {info ? `of ${info.pages}` : ''}
-        </span>
-
-        <button
-          onClick={() =>
-            setPage((p) => (info ? Math.min(info.pages, p + 1) : p))
-          }
-          disabled={!info?.next}
-        >
-          Next
-        </button>
-      </div>
       <CharacterModal
         character={selectedCharacter}
         isOpen={isModalOpen}

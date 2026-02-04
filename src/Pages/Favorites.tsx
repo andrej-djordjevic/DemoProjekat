@@ -4,15 +4,15 @@ import type { FilterParams } from '../services/Characters';
 import type { Dispatch, SetStateAction } from 'react';
 import { observer } from 'mobx-react-lite';
 import { CharacterGrid } from '../Components/CharacterGrid';
-import { CharacterModal } from '../Components/CharacterModal';
+import { CharacterModal } from '../Components/CharacterModal/CharacterModal';
 import { useState } from 'react';
 import type { Character } from '../services/Characters';
 import { favoritesStore } from '../stores/favorites.store';
 
-type Props = {
+interface Props {
   filters: FilterParams;
   setFilters: Dispatch<SetStateAction<FilterParams>>;
-};
+}
 
 const Favorites = observer(({ filters, setFilters }: Props) => {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(

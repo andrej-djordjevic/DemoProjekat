@@ -3,10 +3,10 @@ import { Header } from '../Components/Header/Header';
 import { SubHeader } from '../Components/SubHeader/SubHeader';
 import type { FilterParams } from '../services/Characters';
 
-type Props = {
+interface Props {
   filters: FilterParams;
   setFilters: React.Dispatch<React.SetStateAction<FilterParams>>;
-};
+}
 
 export default function CharacterList({ filters, setFilters }: Props) {
   return (

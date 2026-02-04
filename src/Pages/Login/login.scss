@@ -19,7 +19,7 @@
   border-radius: 0px;
   border: 2px solid black;
   justify-content: center;
-  background-color: #808080;
+  background-color: $color-dark-grey;
 }
 
 .login-form {
@@ -28,55 +28,25 @@
 }
 
 .login-form-item {
-  width: 80% !important;
+  width: 80%;
   align-self: center;
 }
 
-.login-button {
+.ant-btn.login-button {
   border-radius: 0;
   font-weight: 900;
   font-style: italic;
   background-color: $color-light-grey;
   margin-top: 20px;
   font-size: large;
-}
-
-.login-error-margin {
-  margin: 0 0 0 10%;
-}
-
-.LoginError {
-  color: red;
-  font-style: italic;
-  font-weight: bold;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .LoginError {
   color: red;
   font-style: italic;
   font-weight: bold;
-}
-
-.login-centered {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-card {
-  width: 450px;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0px;
-  border: 2px solid black;
-  justify-content: center;
-  background-color: $color-dark-grey;
-}
-
-.login-form-item {
-  width: 80% !important;
 }
 
 .login-error-margin {

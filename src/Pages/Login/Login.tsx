@@ -30,8 +30,8 @@ export default observer(function Login() {
           disabled={authStore.loading}
           className="login-form"
           initialValues={{
-            username: 'admin',
-            password: 'admin',
+            username: 'proba123proba',
+            password: 'proba123proba',
           }}
         >
           <Form.Item

@@ -15,11 +15,11 @@ export class AuthStore {
 
     await new Promise((res) => setTimeout(res, 600));
 
-    const ok = username === 'admin' && password === 'admin';
+    const ok = username === 'proba123proba' && password === 'proba123proba';
 
     runInAction(() => {
       this.isLoggedIn = ok;
-      this.error = ok ? null : 'Pogrešan username ili password';
+      this.error = ok ? null : 'Pogrešni kredencijali';
       this.loading = false;
     });
 

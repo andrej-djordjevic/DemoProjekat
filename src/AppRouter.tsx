@@ -1,18 +1,20 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import type { FilterParams } from './services/Characters';
+import { ProtectedLayout } from './ProtectedLayout';
 import { Suspense, useState } from 'react';
 import { lazy } from 'react';
-const Login = lazy(() => import('./Pages/Login/Login'));
-const CharacterList = lazy(() => import('./Pages/CharacterList'));
-import { ProtectedLayout } from './ProtectedLayout';
 import './CSS/main.scss';
+import { Loader } from './Components/Loader/Loader';
+
+const CharacterList = lazy(() => import('./Pages/CharacterList'));
 const Favorites = lazy(() => import('./Pages/Favorites'));
-import type { FilterParams } from './services/Characters';
+const Login = lazy(() => import('./Pages/Login/Login'));
 
 function AppRouter() {
   const [filters, setFilters] = useState<FilterParams>({});
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route element={<ProtectedLayout />}>

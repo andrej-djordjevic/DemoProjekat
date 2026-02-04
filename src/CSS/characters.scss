@@ -17,10 +17,10 @@
 .charactersGrid {
   margin-top: 20px;
   display: grid;
-  gap: 16px;
+  gap: 8px;
   justify-items: center;
 }
-@media (min-width: 600px) {
+@media (min-width: 601px) {
   .charactersGrid {
     grid-template-columns: repeat(6, 1fr);
   }
@@ -29,6 +29,8 @@
     width: 100%;
     max-width: 150px;
     height: auto;
+    border: 1px solid $color-dark-grey;
+    border-radius: 16px;
     display: block;
   }
 }
@@ -43,6 +45,8 @@
     height: auto;
     display: block;
     margin: 0 auto;
+    border: 1px solid $color-dark-grey;
+    border-radius: 32px;
   }
 }
 
@@ -82,11 +86,6 @@
   font-weight: 600;
   color: $color-green;
   padding: 4px 12px;
-}
-
-.pagination button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .paginationText {

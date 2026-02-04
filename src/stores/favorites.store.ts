@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import type { Character } from './services/Characters';
+import type { Character } from '../services/Characters';
 
 export class FavoritesStore {
   favorites: Character[] = [];
