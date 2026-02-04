@@ -1,3 +1,4 @@
+@use '../../CSS/mixins' as *;
 .subHeader {
   width: 100%;
   padding: 10px;
@@ -44,7 +45,7 @@
   grid-row: 1;
 }
 
-@media (min-width: 601px) {
+@include desktop(601px) {
   .subHeader {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;

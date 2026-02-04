@@ -1,0 +1,19 @@
+@mixin desktop($width) {
+  @media (min-width: #{$width}) {
+    @content;
+  }
+}
+
+@mixin mobile($width) {
+  @media (max-width: #{$width}) {
+    @content;
+  }
+}
+
+$breakpoint-sm: 600px;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
