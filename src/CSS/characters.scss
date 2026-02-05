@@ -1,6 +1,9 @@
 @use '../CSS/variables' as *;
 @use '../CSS/mixins' as *;
 
+// Todo: This should never really be inside styles folder, styles folder is reserved for 
+// global styles, helpers etc, these are component specific
+
 .character-card {
   cursor: pointer;
   transition:

@@ -12,6 +12,9 @@ import { CharacterModal } from './CharacterModal/CharacterModal';
 import { Pagination } from './Pagination';
 
 export const Characters = ({ filters }: { filters?: FilterParams }) => {
+  // Todo: Use MOBX store as much as you can
+  // Create filters store. create Filters component that accepts filterConfig param and renders filters according to that array
+
   const [characters, setCharacters] = useState<Character[]>([]);
   const [info, setInfo] = useState<PageInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -20,6 +23,7 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
     null,
   );
+  // Todo: create modal store and use it alongside custom variant of ANTD modal component to render modals effortlessly 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const skipNextFetch = useRef(false);
 
@@ -30,6 +34,8 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
     }
   }, [filters]);
 
+  // Todo: Use effect generally goes to the bottom of script part
+  // unless u see it makes much more sense to keep it coupled along some other code
   useEffect(() => {
     if (skipNextFetch.current) {
       skipNextFetch.current = false;

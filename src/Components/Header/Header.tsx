@@ -1,9 +1,9 @@
-import '../Header/header.scss';
-import { observer } from 'mobx-react-lite';
-import { useNavigate } from 'react-router-dom';
-import { authStore } from '../../stores/auth.store';
-import { useState } from 'react';
-import type { FilterParams } from '../../services/Characters';
+import "../Header/header.scss";
+import { observer } from "mobx-react-lite";
+import { useNavigate } from "react-router-dom";
+import { authStore } from "../../stores/auth.store";
+import { useState } from "react";
+import type { FilterParams } from "../../services/Characters";
 
 interface Props {
   setFilters: (f: FilterParams) => void;
@@ -15,12 +15,13 @@ export const Header = observer(({ setFilters }: Props) => {
 
   const logout = () => {
     authStore.logout();
-    navigate('/login');
+    navigate("/login");
     setOpen(false);
   };
 
   return (
     <>
+      {/* Todo: use ANTD header, incorporate it into the Layout.tsx component, you can also add a sidebar menu for navigation between the two pages */}
       <header className="app-header">
         <div
           className="logo"
@@ -31,14 +32,14 @@ export const Header = observer(({ setFilters }: Props) => {
               status: undefined,
               gender: undefined,
             });
-            navigate('/');
+            navigate("/");
           }}
         >
           LOGO
         </div>
 
         <button
-          className={`burger ${open ? 'open' : ''}`}
+          className={`burger ${open ? "open" : ""}`}
           onClick={() => setOpen(!open)}
         >
           <span />
@@ -46,7 +47,7 @@ export const Header = observer(({ setFilters }: Props) => {
           <span />
         </button>
 
-        <nav className={`burger-menu ${open ? 'open' : ''}`}>
+        <nav className={`burger-menu ${open ? "open" : ""}`}>
           <button
             id="overlayBtn"
             onClick={() => {
@@ -56,7 +57,7 @@ export const Header = observer(({ setFilters }: Props) => {
                 status: undefined,
                 gender: undefined,
               });
-              navigate('/favorites');
+              navigate("/favorites");
             }}
           >
             favorites

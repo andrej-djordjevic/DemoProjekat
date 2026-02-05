@@ -1,11 +1,13 @@
-import type { Character, Gender, Status } from '../../services/Characters';
-import { genderOptions, statusOptions } from '../../services/Characters';
-import { favoritesStore } from '../../stores/favorites.store';
-import { observer } from 'mobx-react-lite';
-import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
-import { useState, useEffect } from 'react';
-import { Modal, Form, Input, Select, Button } from 'antd';
-import './characterModal.scss';
+import type { Character, Gender, Status } from "../../services/Characters";
+import { genderOptions, statusOptions } from "../../services/Characters";
+import { favoritesStore } from "../../stores/favorites.store";
+import { observer } from "mobx-react-lite";
+import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { Modal, Form, Input, Select, Button } from "antd";
+
+//Todo: We use SCSS modules to protect style leaking
+import "./characterModal.scss";
 
 interface Props {
   character: Character | null;
@@ -24,12 +26,27 @@ export const CharacterModal = observer(
     const [isEditing, setIsEditing] = useState(false);
     const [form] = Form.useForm();
 
+    // Todo: this can be confusing especially if we were to add more ternaries,
+    // its better to write a function that returns a character,
+    // there you can be more explicit with ifs and returns and whatnot which makes it easier to understand
     const character =
       allowEditing && initialCharacter
         ? favoritesStore.favorites.find((c) => c.id === initialCharacter.id) ||
           initialCharacter
         : initialCharacter;
 
+    // In Example to above comment
+
+    // const getCharacter = () => {
+    //   const isEditMode = allowEditing && initialCharacter;
+    //   if (!isEditMode) return initialCharacter;
+    //   const favoriteCharacter = favoritesStore.favorites.find(
+    //     (c) => c.id === initialCharacter.id,
+    //   );
+    //   return favoriteCharacter || initialCharacter;
+    // };
+
+    // Todo: use effects usually go to the bottom, right before the component return
     useEffect(() => {
       if (character) {
         form.setFieldsValue(character);
@@ -44,6 +61,8 @@ export const CharacterModal = observer(
 
     if (!character) return null;
 
+    // Todo: constants go to the top of the component,
+    // firstly we have hook calls (unless required in certain order, u might need a constant to pass to the hook), then constants
     const isFavorite = favoritesStore.isFavorite(character.id);
     const handleFavoriteClick = () => {
       favoritesStore.toggleFavorite(character);
@@ -126,7 +145,7 @@ export const CharacterModal = observer(
                     )
                   }
                   onClick={handleFavoriteClick}
-                  className={`favorite-button ${isFavorite ? 'favorite' : ''}`}
+                  className={`favorite-button ${isFavorite ? "favorite" : ""}`}
                 />
               </div>
             </div>
@@ -160,6 +179,11 @@ export const CharacterModal = observer(
               </div>
               <div className="detail-item">
                 <span className="detail-label">Status:</span>
+                {/* Todo: you can write a component that will serve as a field render and take into account editing status 
+                 Generally, what we do is create a wrapper component around a ANT Design component in this case form item 
+                 and when we define the props we extend ant design props there is a way to add custom props, use spread operator to 
+                 pass all antd props to the component, and use your custom props for extra stuff that requires additional customization.
+                 */}
                 {isEditing ? (
                   <Form.Item name="status" noStyle>
                     <Select<Status>
@@ -178,7 +202,7 @@ export const CharacterModal = observer(
               <div className="detail-item">
                 <span className="detail-label">Location:</span>
                 {isEditing ? (
-                  <Form.Item name={['location', 'name']} noStyle>
+                  <Form.Item name={["location", "name"]} noStyle>
                     <Input className="edit-input" placeholder="Location" />
                   </Form.Item>
                 ) : (
