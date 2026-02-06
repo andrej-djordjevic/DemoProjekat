@@ -1,5 +1,5 @@
-import { makeAutoObservable, runInAction } from 'mobx';
-import type { Character } from '../services/Characters';
+import { makeAutoObservable, runInAction } from "mobx";
+import type { Character } from "../modules/characters";
 
 // Todo: Move to auth module
 
@@ -12,19 +12,19 @@ export class FavoritesStore {
   }
 
   loadFavorites() {
-    const stored = localStorage.getItem('favorites');
+    const stored = localStorage.getItem("favorites");
     if (stored) {
       try {
         this.favorites = JSON.parse(stored);
       } catch (error) {
-        console.error('Error loading favorites:', error);
+        console.error("Error loading favorites:", error);
         this.favorites = [];
       }
     }
   }
 
   saveFavorites() {
-    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    localStorage.setItem("favorites", JSON.stringify(this.favorites));
   }
 
   isFavorite(characterId: number): boolean {

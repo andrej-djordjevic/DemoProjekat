@@ -4,7 +4,7 @@ import {
   genderOptions,
   statusOptions,
   type FilterParams,
-} from "../../services/Characters";
+} from "../../modules/characters";
 import type React from "react";
 
 interface Props {

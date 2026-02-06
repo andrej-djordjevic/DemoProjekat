@@ -1,12 +1,12 @@
 import { Header } from "../Components/Header/Header";
 import { SubHeader } from "../Components/SubHeader/SubHeader";
-import type { FilterParams } from "../services/Characters";
+import type { FilterParams } from "../modules/characters";
 import type { Dispatch, SetStateAction } from "react";
 import { observer } from "mobx-react-lite";
 import { CharacterGrid } from "../Components/CharacterGrid";
 import { CharacterModal } from "../Components/CharacterModal/CharacterModal";
 import { useState } from "react";
-import type { Character } from "../services/Characters";
+import type { Character } from "../modules/characters";
 import { favoritesStore } from "../stores/favorites.store";
 
 // TODO: move in respective <PageName>Page folder

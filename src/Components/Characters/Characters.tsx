@@ -3,13 +3,13 @@ import {
   type Character,
   type FilterParams,
   type PageInfo,
-} from '../services/Characters';
-import '../CSS/characters.scss';
-import { useEffect, useState, useRef } from 'react';
-import { Loader } from './Loader/Loader';
-import { CharacterGrid } from './CharacterGrid';
-import { CharacterModal } from './CharacterModal/CharacterModal';
-import { Pagination } from './Pagination';
+} from "../../modules/characters";
+import "./characters.scss";
+import { useEffect, useRef, useState } from "react";
+import { Loader } from "../Loader/Loader";
+import { CharacterGrid } from "../CharacterGrid";
+import { Pagination } from "../Pagination";
+import { CharacterModal } from "../CharacterModal/CharacterModal";
 
 export const Characters = ({ filters }: { filters?: FilterParams }) => {
   // Todo: Use MOBX store as much as you can
@@ -23,16 +23,9 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
     null,
   );
-  // Todo: create modal store and use it alongside custom variant of ANTD modal component to render modals effortlessly 
+  // Todo: create modal store and use it alongside custom variant of ANTD modal component to render modals effortlessly
   const [isModalOpen, setIsModalOpen] = useState(false);
   const skipNextFetch = useRef(false);
-
-  useEffect(() => {
-    if (page !== 1) {
-      skipNextFetch.current = true;
-      setPage(1);
-    }
-  }, [filters]);
 
   // Todo: Use effect generally goes to the bottom of script part
   // unless u see it makes much more sense to keep it coupled along some other code

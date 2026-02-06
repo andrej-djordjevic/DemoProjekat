@@ -1,7 +1,7 @@
-import { Characters } from '../Components/Characters';
-import { Header } from '../Components/Header/Header';
-import { SubHeader } from '../Components/SubHeader/SubHeader';
-import type { FilterParams } from '../services/Characters';
+import { Characters } from "../Components/Characters/Characters";
+import { Header } from "../Components/Header/Header";
+import { SubHeader } from "../Components/SubHeader/SubHeader";
+import type { FilterParams } from "../modules/characters";
 
 interface Props {
   filters: FilterParams;

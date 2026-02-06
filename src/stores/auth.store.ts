@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from 'mobx';
+import { makeAutoObservable, runInAction } from "mobx";
 
 export class AuthStore {
   isLoggedIn = false;
@@ -15,11 +15,11 @@ export class AuthStore {
 
     await new Promise((res) => setTimeout(res, 600));
 
-    const ok = username === 'proba123proba' && password === 'proba123proba';
+    const ok = username === "proba123proba" && password === "proba123proba";
 
     runInAction(() => {
       this.isLoggedIn = ok;
-      this.error = ok ? null : 'Pogrešni kredencijali';
+      this.error = ok ? null : "Pogrešni kredencijali";
       this.loading = false;
     });
 

@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 import { authStore } from "../../stores/auth.store";
 import { useState } from "react";
-import type { FilterParams } from "../../services/Characters";
+import type { FilterParams } from "../../modules/characters";
 
 interface Props {
   setFilters: (f: FilterParams) => void;
