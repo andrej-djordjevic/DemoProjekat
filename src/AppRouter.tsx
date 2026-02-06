@@ -17,6 +17,7 @@ function AppRouter() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<Login />} />
+          {/* Todo: use a layout component that handles Header Sidebar and Content */}
           <Route element={<ProtectedLayout />}>
             <Route
               path="/"

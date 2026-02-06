@@ -1,5 +1,5 @@
-import type { Character } from '../services/Characters';
-import '../CSS/characters.scss';
+import type { Character } from "../services/Characters";
+import "../CSS/characters.scss";
 
 interface CharacterGridProps {
   characters: Character[];
@@ -11,6 +11,7 @@ export const CharacterGrid = ({
   onCharacterClick,
 }: CharacterGridProps) => {
   return (
+    // Todo: Make it toggleable between this grid , or a implementation that uses ANTD Table component
     <div className="charactersGrid">
       {characters.map((character) => (
         <div

@@ -1,8 +1,10 @@
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosError } from "axios";
 
-export type Gender = 'Male' | 'Female' | 'Genderless' | 'unknown';
+// Todo: reorganize stuff from here into characters module
 
-export type Status = 'Alive' | 'Dead' | 'unknown';
+export type Gender = "Male" | "Female" | "Genderless" | "unknown";
+
+export type Status = "Alive" | "Dead" | "unknown";
 
 export interface Character {
   id: number;
@@ -14,8 +16,8 @@ export interface Character {
   location: { name: string; url: string };
 }
 
-export const GENDERS: Gender[] = ['Male', 'Female', 'Genderless', 'unknown'];
-export const STATUSES: Status[] = ['Alive', 'Dead', 'unknown'];
+export const GENDERS: Gender[] = ["Male", "Female", "Genderless", "unknown"];
+export const STATUSES: Status[] = ["Alive", "Dead", "unknown"];
 
 export const genderOptions = GENDERS.map((gender) => ({
   value: gender,
@@ -67,25 +69,29 @@ export const getCharacters = async (
   try {
     const params: Record<string, unknown> = { page };
 
+    // Todo: when using filters we usually set their values to undefined because
+    // axios by default doesnt attach undefined values to the urlParams or body palyoad
     if (filters.name) params.name = filters.name;
     if (filters.species) params.species = filters.species;
     if (filters.status) params.status = filters.status;
     if (filters.gender) params.gender = filters.gender;
 
     const response = await axios.get<CharactersResponse>(
-      'https://rickandmortyapi.com/api/character',
+      "https://rickandmortyapi.com/api/character",
       { params },
     );
 
     const result = { data: response.data, error: null };
     characterCache.set(cacheKey, result);
     return result;
+    // Todo:  Errors are usually handled inside an axios error interceptor, we always create an axios instance and
+    // configure it with the API base url, and interceptors for error handling and header management (authorization bearer token i.e)
   } catch (err) {
     const error =
       err instanceof AxiosError
         ? (err.response?.data?.error ??
-          err.message + ' - ' + 'API request failed')
-        : 'Unknown error';
+          err.message + " - " + "API request failed")
+        : "Unknown error";
     const result = { data: null, error };
     characterCache.set(cacheKey, result);
     return result;

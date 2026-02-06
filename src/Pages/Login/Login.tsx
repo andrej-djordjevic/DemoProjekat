@@ -1,10 +1,10 @@
-import { Form, Input, Button, Card } from 'antd';
-import { Loader } from '../../Components/Loader/Loader';
-import { useNavigate } from 'react-router-dom';
-import './login.scss';
-import { useState } from 'react';
-import { authStore } from '../../stores/auth.store';
-import { observer } from 'mobx-react-lite';
+import { Form, Input, Button, Card } from "antd";
+import { Loader } from "../../Components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
+import "./login.scss";
+import { useState } from "react";
+import { authStore } from "../../stores/auth.store";
+import { observer } from "mobx-react-lite";
 
 export default observer(function Login() {
   const navigate = useNavigate();
@@ -15,12 +15,13 @@ export default observer(function Login() {
 
     await authStore.login(values.username, values.password);
     if (authStore.isLoggedIn) {
-      navigate('/');
+      navigate("/");
     } else {
       setError(true);
     }
   };
 
+  // Todo: move login form to be a page/component
   return (
     <div className="login-page login-centered">
       <Card className="login-card">
@@ -30,14 +31,14 @@ export default observer(function Login() {
           disabled={authStore.loading}
           className="login-form"
           initialValues={{
-            username: 'proba123proba',
-            password: 'proba123proba',
+            username: "proba123proba",
+            password: "proba123proba",
           }}
         >
           <Form.Item
             name="username"
             className="login-form-item"
-            rules={[{ required: true, message: 'Enter username' }]}
+            rules={[{ required: true, message: "Enter username" }]}
           >
             <Input placeholder="Username" />
           </Form.Item>
@@ -45,20 +46,20 @@ export default observer(function Login() {
           <Form.Item
             name="password"
             className="login-form-item"
-            rules={[{ required: true, message: 'Enter password' }]}
+            rules={[{ required: true, message: "Enter password" }]}
           >
             <Input.Password placeholder="Password" />
           </Form.Item>
 
           {(error || authStore.error) && (
             <p className="LoginError login-error-margin">
-              {authStore.error ?? 'Invalid username or password'}
+              {authStore.error ?? "Invalid username or password"}
             </p>
           )}
 
           <Form.Item>
             <Button className="login-button" htmlType="submit" block>
-              {authStore.loading ? '...' : 'LOG IN'}
+              {authStore.loading ? "..." : "LOG IN"}
             </Button>
           </Form.Item>
         </Form>
