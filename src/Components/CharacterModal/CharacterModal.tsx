@@ -46,19 +46,6 @@ export const CharacterModal = observer(
     //   return favoriteCharacter || initialCharacter;
     // };
 
-    // Todo: use effects usually go to the bottom, right before the component return
-    useEffect(() => {
-      if (character) {
-        form.setFieldsValue(character);
-      }
-    }, [character, form]);
-
-    useEffect(() => {
-      if (!isOpen) {
-        setIsEditing(false);
-      }
-    }, [isOpen]);
-
     if (!character) return null;
 
     // Todo: constants go to the top of the component,
@@ -85,6 +72,18 @@ export const CharacterModal = observer(
       setIsEditing(false);
       form.resetFields();
     };
+
+    useEffect(() => {
+      if (character) {
+        form.setFieldsValue(character);
+      }
+    }, [character, form]);
+
+    useEffect(() => {
+      if (!isOpen) {
+        setIsEditing(false);
+      }
+    }, [isOpen]);
 
     return (
       <Modal

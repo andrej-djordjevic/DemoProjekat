@@ -1,7 +1,7 @@
 import "../Header/header.scss";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
-import { authStore } from "../../stores/auth.store";
+import { authStore } from "../../modules/auth/auth.store";
 import { useState } from "react";
 import type { FilterParams } from "../../modules/characters";
 

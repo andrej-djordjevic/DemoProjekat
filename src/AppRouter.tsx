@@ -6,9 +6,9 @@ import { lazy } from "react";
 import "./Styles/main.scss";
 import { Loader } from "./Components/Loader/Loader";
 
-const CharacterList = lazy(() => import("./Pages/CharacterList"));
-const Favorites = lazy(() => import("./Pages/Favorites"));
-const Login = lazy(() => import("./Pages/Login/Login"));
+const CharacterList = lazy(() => import("./pages/CharacterListPage"));
+const Favorites = lazy(() => import("./pages/FavoritesPage"));
+const Login = lazy(() => import("./pages/LoginPage/LoginPage"));
 
 function AppRouter() {
   const [filters, setFilters] = useState<FilterParams>({});

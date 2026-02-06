@@ -24,25 +24,6 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
     gender: undefined,
   });
 
-  useEffect(() => {
-    setLocal((l) => ({ ...l, ...filters }));
-  }, [filters]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (local.species !== filters.species) {
-        setFilters({
-          name: (local.name || "").trim(),
-          species: (local.species || "").trim(),
-          status: local.status || undefined,
-          gender: local.gender || undefined,
-        });
-      }
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [local.species, filters, setFilters]);
-
   const onChange =
     (key: keyof FilterParams) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -60,6 +41,32 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
       gender: local.gender || undefined,
     });
   };
+
+  useEffect(() => {
+    setLocal((l) => ({ ...l, ...filters }));
+  }, [filters]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (local.species !== filters.species) {
+        setFilters({
+          name: (local.name || "").trim(),
+          species: (local.species || "").trim(),
+          status: local.status || undefined,
+          gender: local.gender || undefined,
+        });
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [
+    local.species,
+    filters,
+    setFilters,
+    local.name,
+    local.status,
+    local.gender,
+  ]);
 
   return (
     // Use antd form it has all the good stuff like custom field rules, validation of form fields, helpers like set data clear data etc etc

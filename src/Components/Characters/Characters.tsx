@@ -27,8 +27,16 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const skipNextFetch = useRef(false);
 
-  // Todo: Use effect generally goes to the bottom of script part
-  // unless u see it makes much more sense to keep it coupled along some other code
+  const handleCharacterClick = (character: Character) => {
+    setSelectedCharacter(character);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCharacter(null);
+  };
+
   useEffect(() => {
     if (skipNextFetch.current) {
       skipNextFetch.current = false;
@@ -54,16 +62,6 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
 
     load();
   }, [page, filters]);
-
-  const handleCharacterClick = (character: Character) => {
-    setSelectedCharacter(character);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedCharacter(null);
-  };
 
   if (loading) return <Loader />;
   if (error) return <p className="error">{error}</p>;
