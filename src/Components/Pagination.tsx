@@ -1,39 +1,33 @@
 import React from "react";
+import { Pagination as AntdPagination } from "antd";
+import "./Pagination.scss";
 
-type Props = {
+interface Props {
   page: number;
   totalPages?: number;
-  hasPrev: boolean;
-  hasNext: boolean;
-  onPrev: () => void;
-  onNext: () => void;
+  onChange: (page: number) => void;
   className?: string;
-};
+}
 
 export const Pagination: React.FC<Props> = ({
   page,
-  totalPages,
-  hasPrev,
-  hasNext,
-  onPrev,
-  onNext,
+  totalPages = 1,
+  onChange,
   className,
 }) => {
   return (
     <div className={className ?? "pagination"}>
-      {/* Todo: Nice simple custom pagination, for practice, implement ANTD pagination as well,
-       you will often use it alognside, or as a part of the Table component, which is also very very commonly used  */}
-      <button onClick={onPrev} disabled={!hasPrev}>
-        Prev
-      </button>
-
-      <span>
-        Page {page} {totalPages ? `of ${totalPages}` : ""}
-      </span>
-
-      <button onClick={onNext} disabled={!hasNext}>
-        Next
-      </button>
+      <AntdPagination
+        current={page}
+        total={totalPages}
+        pageSize={1}
+        onChange={onChange}
+        showSizeChanger={false}
+        hideOnSinglePage={true}
+        showQuickJumper
+        showTotal={() => `Page ${page} of ${totalPages}`}
+        className={"custom-pagination-antd"}
+      />
     </div>
   );
 };

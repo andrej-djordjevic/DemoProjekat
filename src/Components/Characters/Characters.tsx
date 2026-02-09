@@ -75,11 +75,8 @@ export const Characters = ({ filters }: { filters?: FilterParams }) => {
 
       <Pagination
         page={page}
-        totalPages={info?.pages}
-        hasPrev={!!info?.prev}
-        hasNext={!!info?.next}
-        onPrev={() => setPage((p) => Math.max(1, p - 1))}
-        onNext={() => setPage((p) => (info ? Math.min(info.pages, p + 1) : p))}
+        totalPages={info?.pages || 1}
+        onChange={setPage}
       />
 
       <CharacterModal

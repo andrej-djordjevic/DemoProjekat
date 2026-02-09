@@ -11,18 +11,6 @@
   grid-template-rows: repeat(2, auto);
 }
 
-.filterInput,
-.searchBtn {
-  height: 34px;
-  border: 2px solid #bfbfbf;
-  padding: 0 10px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.searchBtn {
-  cursor: pointer;
-}
 
 .filterInput:nth-child(1) {
   grid-column: 1;

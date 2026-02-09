@@ -1,0 +1,30 @@
+@use "../../Styles/variables" as *;
+
+.custom-btn {
+  border-radius: 4px;
+}
+
+.searchBtn {
+  background-color: white;
+  color: black;
+  border: 2px solid #bfbfbf;
+  box-sizing: border-box;
+  width: 100%;
+  &:hover {
+    background-color: $search-button-color;
+    color: $color-green-hover !important;
+    border-color: $color-green-hover !important;
+  }
+}
+.paginationBtn {
+  background-color: white;
+  color: black;
+  border: 2px solid #bfbfbf;
+  box-sizing: border-box;
+  width: 100%;
+  &:hover {
+    background-color: $search-button-color;
+    color: $color-green-hover !important;
+    border-color: $color-green-hover !important;
+  }
+}
