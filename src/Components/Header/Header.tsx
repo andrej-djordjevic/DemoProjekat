@@ -2,8 +2,9 @@ import "../Header/Header.scss";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 import { authStore } from "../../modules/auth/auth.store";
-import { useState } from "react";
 import type { FilterParams } from "../../modules/characters";
+import { Layout, Menu } from "antd";
+import { LogoutOutlined, StarOutlined, HomeOutlined } from "@ant-design/icons";
 
 interface Props {
   setFilters: (f: FilterParams) => void;
@@ -11,64 +12,79 @@ interface Props {
 
 export const Header = observer(({ setFilters }: Props) => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
 
   const logout = () => {
     authStore.logout();
     navigate("/login");
-    setOpen(false);
+  };
+  {
+    /* Todo: use ANTD header, incorporate it into the Layout.tsx component, you can also add a sidebar menu for navigation between the two pages */
+  }
+  const handleMenuClick = (e: { key: string }) => {
+    setFilters({
+      name: undefined,
+      species: undefined,
+      status: undefined,
+      gender: undefined,
+    });
+    if (e.key === "home") {
+      navigate("/");
+    } else if (e.key === "favorites") {
+      navigate("/favorites");
+    } else if (e.key === "logout") {
+      logout();
+    }
   };
 
   return (
-    <>
-      {/* Todo: use ANTD header, incorporate it into the Layout.tsx component, you can also add a sidebar menu for navigation between the two pages */}
-      <header className="app-header">
-        <div
+    <Layout.Header
+      className="app-header"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: 0,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <img
+          src="../../public/Logo.png"
           className="logo"
-          onClick={() => {
-            setFilters({
-              name: undefined,
-              species: undefined,
-              status: undefined,
-              gender: undefined,
-            });
-            navigate("/");
-          }}
-        >
-          LOGO
-        </div>
-
-        <button
-          className={`burger ${open ? "open" : ""}`}
-          onClick={() => setOpen(!open)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-
-        <nav className={`burger-menu ${open ? "open" : ""}`}>
-          <button
-            id="overlayBtn"
-            onClick={() => {
-              setFilters({
-                name: undefined,
-                species: undefined,
-                status: undefined,
-                gender: undefined,
-              });
-              navigate("/favorites");
-            }}
-          >
-            favorites
-          </button>
-          <button id="overlayBtn" onClick={logout}>
-            log out
-          </button>
-        </nav>
-      </header>
-
-      {open && <div className="overlay" onClick={() => setOpen(false)} />}
-    </>
+          style={{ height: 48, cursor: "pointer" }}
+          onClick={() => handleMenuClick({ key: "home" })}
+        />
+      </div>
+      <Menu
+        mode="horizontal"
+        theme="dark"
+        selectable={false}
+        style={{
+          flex: 1,
+          justifyContent: "flex-end",
+          background: "transparent",
+          minWidth: 0,
+        }}
+        items={[
+          {
+            key: "home",
+            icon: <HomeOutlined />,
+            label: "Home",
+            onClick: () => handleMenuClick({ key: "home" }),
+          },
+          {
+            key: "favorites",
+            icon: <StarOutlined />,
+            label: "Favorites",
+            onClick: () => handleMenuClick({ key: "favorites" }),
+          },
+          {
+            key: "logout",
+            icon: <LogoutOutlined />,
+            label: "Log out",
+            onClick: () => handleMenuClick({ key: "logout" }),
+          },
+        ]}
+      />
+    </Layout.Header>
   );
 });
