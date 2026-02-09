@@ -5,9 +5,7 @@ import { observer } from "mobx-react-lite";
 import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
-
-//Todo: We use SCSS modules to protect style leaking
-import "./characterModal.scss";
+import "./CharacterModal.scss";
 
 interface Props {
   character: Character | null;

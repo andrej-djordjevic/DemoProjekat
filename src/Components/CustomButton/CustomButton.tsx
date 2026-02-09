@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, type ButtonProps } from "antd";
-import "./Button.scss";
+import "./CustomButton.scss";
 
 export const CustomButton: React.FC<ButtonProps> = ({
   className,

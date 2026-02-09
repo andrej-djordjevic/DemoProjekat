@@ -4,11 +4,11 @@ import {
   type FilterParams,
   type PageInfo,
 } from "../../modules/characters";
-import "./characters.scss";
+import "./Characters.scss";
 import { useEffect, useRef, useState } from "react";
 import { Loader } from "../Loader/Loader";
-import { CharacterGrid } from "../CharacterGrid";
-import { Pagination } from "../Pagination";
+import { CharacterGrid } from "../CharacterGrid/CharacterGrid";
+import { Pagination } from "../Pagination/Pagination";
 import { CharacterModal } from "../CharacterModal/CharacterModal";
 
 export const Characters = ({ filters }: { filters?: FilterParams }) => {

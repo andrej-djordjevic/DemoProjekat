@@ -1,4 +1,4 @@
-import "./subHeader.scss";
+import "./SubHeader.scss";
 import { useEffect } from "react";
 import {
   genderOptions,
@@ -6,7 +6,7 @@ import {
   type FilterParams,
 } from "../../modules/characters";
 import { Form, Input, Select } from "antd";
-import { CustomButton } from "../Button/CustomButton";
+import { CustomButton } from "../CustomButton/CustomButton";
 
 interface Props {
   filters: FilterParams;

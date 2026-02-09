@@ -1,5 +1,5 @@
-import type { Character } from "../modules/characters";
-import "../Components/Characters/characters.scss";
+import type { Character } from "../../modules/characters";
+import "../../Components/Characters/Characters.scss";
 
 interface CharacterGridProps {
   characters: Character[];

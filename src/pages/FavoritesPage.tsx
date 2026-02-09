@@ -3,7 +3,7 @@ import { SubHeader } from "../Components/SubHeader/SubHeader";
 import type { FilterParams } from "../modules/characters";
 import type { Dispatch, SetStateAction } from "react";
 import { observer } from "mobx-react-lite";
-import { CharacterGrid } from "../Components/CharacterGrid";
+import { CharacterGrid } from "../Components/CharacterGrid/CharacterGrid";
 import { CharacterModal } from "../Components/CharacterModal/CharacterModal";
 import { useState } from "react";
 import type { Character } from "../modules/characters";
