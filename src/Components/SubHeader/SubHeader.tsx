@@ -66,7 +66,7 @@ export const SubHeader = ({ filters, setFilters }: Props) => {
         />
       </Form.Item>
       <Form.Item>
-        <CustomButton className="searchBtn" htmlType="submit">
+        <CustomButton className="search-Btn" htmlType="submit">
           SEARCH
         </CustomButton>
       </Form.Item>
