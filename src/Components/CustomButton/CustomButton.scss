@@ -19,18 +19,18 @@
   width: 100%;
   &:hover {
     background-color: $search-button-color;
-    color: $color-green-hover !important;
-    border-color: $color-green-hover !important;
+    color: $primary-color-hover !important;
+    border-color: $primary-color-hover !important;
   }
 }
 
 .toggle-tableView-Btn {
-  background-color: $color-green;
+  background-color: $primary-color;
   margin: 10px;
   color: white;
   &:hover {
     background-color: $search-button-color;
-    color: $color-green-hover !important;
-    border-color: $color-green-hover !important;
+    color: $primary-color-hover !important;
+    border-color: $primary-color-hover !important;
   }
 }

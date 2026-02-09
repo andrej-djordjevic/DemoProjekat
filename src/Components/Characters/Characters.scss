@@ -1,19 +1,34 @@
 @use "../../Styles/variables" as *;
 @use "../../Styles/mixins" as *;
-// Todo: This should never really be inside styles folder, styles folder is reserved for
-// global styles, helpers etc, these are component specific
+
+.ant-table,
+.ant-table-container,
+.ant-table-content {
+  background: $galaxy-gradient !important;
+}
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  background: transparent !important;
+  color: #fff !important;
+}
+
 .character-card {
+  border: 1px solid $color-dark;
+  background-color: $color-light;
+  color: white;
   cursor: pointer;
   transition:
     transform 0.15s ease,
     box-shadow 0.2s ease;
-  border-radius: 8px;
+  border-radius: 16px;
   text-align: center;
 }
 
 .character-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: $primary-color;
+  border: 1px solid $primary-color;
 }
 
 .charactersGrid {
@@ -31,7 +46,7 @@
     width: 100%;
     max-width: 150px;
     height: auto;
-    border: 1px solid $color-dark-grey;
+    border: 1px solid $color-dark;
     border-radius: 16px;
     display: block;
   }
@@ -47,7 +62,7 @@
     height: auto;
     display: block;
     margin: 0 auto;
-    border: 1px solid $color-dark-grey;
+    border: 1px solid $color-dark;
     border-radius: 32px;
   }
 }
@@ -63,7 +78,7 @@
 }
 
 .pagination button {
-  background: $color-green;
+  background: $primary-color;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -84,7 +99,7 @@
 
 .pagination span {
   font-weight: 600;
-  color: $color-green;
+  color: $primary-color;
   padding: 4px 12px;
 }
 

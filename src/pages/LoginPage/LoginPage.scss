@@ -1,7 +1,7 @@
 @use "../../Styles/variables" as *;
 
 .login-page {
-  background-color: $color-light-grey;
+  background-color: $color-light;
 }
 
 .login-centered {
@@ -19,7 +19,7 @@
   border-radius: 0px;
   border: 2px solid black;
   justify-content: center;
-  background-color: $color-dark-grey;
+  background-color: $color-dark;
 }
 
 .login-form {
@@ -36,7 +36,7 @@
   border-radius: 0;
   font-weight: 900;
   font-style: italic;
-  background-color: $color-light-grey;
+  background-color: $color-light;
   margin-top: 20px;
   font-size: large;
   width: 80%;

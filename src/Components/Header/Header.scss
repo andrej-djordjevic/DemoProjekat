@@ -3,7 +3,7 @@
 
 .app-header {
   height: 60px;
-  background: $color-dark-grey;
+  background: $color-dark;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,7 +95,7 @@
   }
 
   .burger-menu button {
-    background-color: $color-green;
+    background-color: $primary-color;
     border: none;
     font-size: 14px;
     cursor: pointer;

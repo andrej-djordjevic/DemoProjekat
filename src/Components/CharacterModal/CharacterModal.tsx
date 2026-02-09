@@ -24,6 +24,17 @@ export const CharacterModal = observer(
     const [isEditing, setIsEditing] = useState(false);
     const [form] = Form.useForm();
 
+    useEffect(() => {
+      if (initialCharacter) {
+        form.setFieldsValue(initialCharacter);
+      }
+    }, [initialCharacter, form]);
+    useEffect(() => {
+      if (!isOpen) {
+        setIsEditing(false);
+      }
+    }, [isOpen]);
+
     // Todo: this can be confusing especially if we were to add more ternaries,
     // its better to write a function that returns a character,
     // there you can be more explicit with ifs and returns and whatnot which makes it easier to understand
@@ -70,18 +81,6 @@ export const CharacterModal = observer(
       setIsEditing(false);
       form.resetFields();
     };
-
-    useEffect(() => {
-      if (character) {
-        form.setFieldsValue(character);
-      }
-    }, [character, form]);
-
-    useEffect(() => {
-      if (!isOpen) {
-        setIsEditing(false);
-      }
-    }, [isOpen]);
 
     return (
       <Modal

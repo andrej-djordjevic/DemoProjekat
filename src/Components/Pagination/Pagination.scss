@@ -1,21 +1,27 @@
 @use "../../Styles/variables" as *;
 
+.pagination {
+  background: none;
+}
+
 .custom-pagination-antd {
+  background-color: #b300ff;
+  padding: 16px;
+  border-radius: 36px;
+
   display: flex;
   justify-content: center;
   margin: 20px 0;
 
   .ant-pagination-item {
     border-radius: 100px;
-    border-color: $color-green;
-    color: $color-green;
+    border-color: $primary-color;
+    color: $primary-color;
+    border: 1px solid black;
   }
   .ant-pagination-item-active {
     a {
-      color: lime;
+      color: $primary-color;
     }
-
-    border-color: $color-green;
-    color: #fff !important;
   }
 }

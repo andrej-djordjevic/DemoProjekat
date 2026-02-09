@@ -1,5 +1,4 @@
 .modal-content {
-  background: white;
   border-radius: 8px;
   padding: 25px;
   width: 90%;
@@ -195,4 +194,11 @@
 .name-input {
   font-size: 24px;
   font-weight: bold;
+}
+
+.ant-modal-container {
+  padding: 0px !important;
+}
+.ant-modal-body {
+  background: rgb(185, 168, 247);
 }

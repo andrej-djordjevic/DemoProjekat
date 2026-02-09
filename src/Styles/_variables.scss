@@ -1,8 +1,10 @@
-$color-light-grey: #c0c0c0;
-$color-dark-grey: #808080;
-$color-green: #3dc115;
-$color-green-hover: #00a51e;
-
+$galaxy-gradient:
+  radial-gradient(circle at 20% 30%, rgba(255, 120, 255, 0.7), transparent 40%),
+  radial-gradient(circle at 80% 20%, rgba(120, 160, 255, 0.6), transparent 40%),
+  radial-gradient(circle at 50% 70%, rgba(90, 40, 180, 0.8), transparent 50%),
+  linear-gradient(180deg, #3700dd, #0b0433, #02010a);
+$color-light: #753b9280;
+$color-dark: #742eee;
+$primary-color: rgba(66, 28, 255, 0.485);
+$primary-color-hover: #1900ff;
 $search-button-color: #1677ff;
-$pagination-button-color: #00a51e;
-
