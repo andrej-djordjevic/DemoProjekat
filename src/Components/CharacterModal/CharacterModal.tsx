@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
 import "./CharacterModal.scss";
 
-interface Props {
+export interface CharacterModalProps {
   character: Character | null;
   isOpen: boolean;
   onClose: () => void;
@@ -20,7 +20,7 @@ export const CharacterModal = observer(
     isOpen,
     onClose,
     allowEditing = false,
-  }: Props) => {
+  }: CharacterModalProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const [form] = Form.useForm();
 

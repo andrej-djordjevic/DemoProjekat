@@ -8,14 +8,14 @@ import {
 import { Form, Input, Select } from "antd";
 import { CustomButton } from "../CustomButton/CustomButton";
 
-interface Props {
+export interface SubHeaderProps {
   filters: FilterParams;
   setFilters: (f: FilterParams) => void;
 }
 
 // Todo: turn this into filters component,pass filter config to it, it should consist of primarily
 // filterkey, filterType and all the other props neccessary for specific stuff lice date / select and so on
-export const SubHeader = ({ filters, setFilters }: Props) => {
+export const SubHeader = ({ filters, setFilters }: SubHeaderProps) => {
   // Why do we set filters here as well as in the parent component can't we just reuse the filters values from the props?
 
   const [form] = Form.useForm();

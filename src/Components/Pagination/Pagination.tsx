@@ -2,14 +2,14 @@ import React from "react";
 import { Pagination as AntdPagination } from "antd";
 import "./Pagination.scss";
 
-interface Props {
+export interface PaginationProps {
   page: number;
   totalPages?: number;
   onChange: (page: number) => void;
   className?: string;
 }
 
-export const Pagination: React.FC<Props> = ({
+export const Pagination: React.FC<PaginationProps> = ({
   page,
   totalPages = 1,
   onChange,

@@ -6,8 +6,10 @@ import { lazy } from "react";
 import "./Styles/main.scss";
 import { Loader } from "./Components/Loader/Loader";
 
-const CharacterList = lazy(() => import("./pages/CharacterListPage"));
-const Favorites = lazy(() => import("./pages/FavoritesPage"));
+const CharacterList = lazy(
+  () => import("./pages/CharacterListPage/CharacterListPage"),
+);
+const Favorites = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
 const Login = lazy(() => import("./pages/LoginPage/LoginPage"));
 
 function AppRouter() {

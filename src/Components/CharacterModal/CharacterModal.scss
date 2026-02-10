@@ -200,5 +200,32 @@
   padding: 0px !important;
 }
 .ant-modal-body {
-  background: rgb(185, 168, 247);
+  background: linear-gradient(
+    120deg,
+    rgb(156, 117, 255),
+    rgb(103, 62, 252),
+    rgb(182, 160, 230),
+    rgb(157, 62, 252)
+  );
+  background-size: 200% 200%;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.ant-modal-container {
+  border-radius: 24px 12% !important;
+  border: 2px solid black !important;
+}
+.ant-modal-body {
+  border-radius: 24px 12% !important;
 }

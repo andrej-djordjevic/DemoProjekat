@@ -1,23 +1,20 @@
-import { Header } from "../Components/Header/Header";
-import { SubHeader } from "../Components/SubHeader/SubHeader";
-import type { FilterParams } from "../modules/characters";
 import type { Dispatch, SetStateAction } from "react";
 import { observer } from "mobx-react-lite";
-import { CharacterGrid } from "../Components/CharacterGrid/CharacterGrid";
-import { CharacterModal } from "../Components/CharacterModal/CharacterModal";
 import { useState } from "react";
-import type { Character } from "../modules/characters";
-import { favoritesStore } from "../stores/favorites.store";
-
-// TODO: move in respective <PageName>Page folder
+import type { Character, FilterParams } from "../../modules/characters";
+import { favoritesStore } from "../../stores/favorites.store";
+import { SubHeader } from "../../Components/SubHeader/SubHeader";
+import { Header } from "../../Components/Header/Header";
+import { CharacterGrid } from "../../Components/CharacterGrid/CharacterGrid";
+import { CharacterModal } from "../../Components/CharacterModal/CharacterModal";
 
 // Todo: Not props but I<ComponentName>Props, always export them never know when u gonna need it
-export interface Props {
+export interface FavoritesProps {
   filters: FilterParams;
   setFilters: Dispatch<SetStateAction<FilterParams>>;
 }
 
-export const Favorites = observer(({ filters, setFilters }: Props) => {
+export const Favorites = observer(({ filters, setFilters }: FavoritesProps) => {
   // Todo: move to character.store
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
     null,
