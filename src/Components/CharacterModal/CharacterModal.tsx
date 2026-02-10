@@ -1,6 +1,6 @@
 import type { Character, Gender, Status } from "../../modules/characters";
 import { genderOptions, statusOptions } from "../../modules/characters";
-import { favoritesStore } from "../../stores/favorites.store";
+import { favoritesStore } from "../../modules/auth/favorites.store";
 import { observer } from "mobx-react-lite";
 import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from "react-icons/fa";
 import { useState, useEffect } from "react";
@@ -24,6 +24,21 @@ export const CharacterModal = observer(
     const [isEditing, setIsEditing] = useState(false);
     const [form] = Form.useForm();
 
+    const character = (() => {
+      const isEditMode = allowEditing && initialCharacter;
+      if (!isEditMode) return initialCharacter;
+      const favoriteCharacter = favoritesStore.favorites.find(
+        (c) => c.id === initialCharacter.id,
+      );
+      return favoriteCharacter || initialCharacter;
+    })();
+
+    if (!character) return null;
+              
+                              
+
+    const isFavorite = favoritesStore.isFavorite(character.id);
+
     useEffect(() => {
       if (initialCharacter) {
         form.setFieldsValue(initialCharacter);
@@ -35,31 +50,8 @@ export const CharacterModal = observer(
       }
     }, [isOpen]);
 
-    // Todo: this can be confusing especially if we were to add more ternaries,
-    // its better to write a function that returns a character,
-    // there you can be more explicit with ifs and returns and whatnot which makes it easier to understand
-    const character =
-      allowEditing && initialCharacter
-        ? favoritesStore.favorites.find((c) => c.id === initialCharacter.id) ||
-          initialCharacter
-        : initialCharacter;
-
-    // In Example to above comment
-
-    // const getCharacter = () => {
-    //   const isEditMode = allowEditing && initialCharacter;
-    //   if (!isEditMode) return initialCharacter;
-    //   const favoriteCharacter = favoritesStore.favorites.find(
-    //     (c) => c.id === initialCharacter.id,
-    //   );
-    //   return favoriteCharacter || initialCharacter;
-    // };
-
-    if (!character) return null;
-
     // Todo: constants go to the top of the component,
     // firstly we have hook calls (unless required in certain order, u might need a constant to pass to the hook), then constants
-    const isFavorite = favoritesStore.isFavorite(character.id);
     const handleFavoriteClick = () => {
       favoritesStore.toggleFavorite(character);
     };

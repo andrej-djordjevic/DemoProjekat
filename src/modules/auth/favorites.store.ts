@@ -1,7 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import type { Character } from "../modules/characters";
+import type { Character } from "../characters";
 
-// Todo: Move to auth module
 
 export class FavoritesStore {
   favorites: Character[] = [];

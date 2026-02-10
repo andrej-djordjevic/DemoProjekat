@@ -7,7 +7,7 @@ import { authStore } from "../../modules/auth/auth.store";
 import "./LoginPage.scss";
 import { LoginForm } from "./components/LoginForm";
 
-const Login = observer(function Login() {
+export const Login = observer(function Login() {
   const navigate = useNavigate();
 
   return (
@@ -20,4 +20,3 @@ const Login = observer(function Login() {
   );
 });
 
-export default Login;

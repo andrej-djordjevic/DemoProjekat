@@ -2,15 +2,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import type { FilterParams } from "./modules/characters";
 import { ProtectedLayout } from "./ProtectedLayout";
 import { Suspense, useState } from "react";
-import { lazy } from "react";
 import "./Styles/main.scss";
 import { Loader } from "./Components/Loader/Loader";
-
-const CharacterList = lazy(
-  () => import("./pages/CharacterListPage/CharacterListPage"),
-);
-const Favorites = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
-const Login = lazy(() => import("./pages/LoginPage/LoginPage"));
+import { Login } from "./pages/LoginPage/LoginPage";
+import { CharacterList } from "./pages/CharacterListPage/CharacterListPage";
+import { Favorites } from "./pages/FavoritesPage/FavoritesPage";
 
 function AppRouter() {
   const [filters, setFilters] = useState<FilterParams>({});

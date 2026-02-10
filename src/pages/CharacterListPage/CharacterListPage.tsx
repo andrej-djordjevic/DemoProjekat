@@ -8,7 +8,7 @@ export interface CharacterListProps {
   setFilters: React.Dispatch<React.SetStateAction<FilterParams>>;
 }
 
-export default function CharacterList({
+export function CharacterList({
   filters,
   setFilters,
 }: CharacterListProps) {
