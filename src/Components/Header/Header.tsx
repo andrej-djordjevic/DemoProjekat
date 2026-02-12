@@ -6,11 +6,11 @@ import type { FilterParams } from "../../modules/characters";
 import { Layout, Menu } from "antd";
 import { LogoutOutlined, StarOutlined, HomeOutlined } from "@ant-design/icons";
 
-export interface HeaderProps {
+export interface IHeaderProps {
   setFilters: (f: FilterParams) => void;
 }
 
-export const Header = observer(({ setFilters }: HeaderProps) => {
+export const Header = observer(({ setFilters }: IHeaderProps) => {
   const navigate = useNavigate();
 
   const logout = () => {

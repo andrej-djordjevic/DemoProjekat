@@ -3,11 +3,11 @@ import { genderOptions, statusOptions } from "../../modules/characters";
 import { favoritesStore } from "../../modules/auth/favorites.store";
 import { observer } from "mobx-react-lite";
 import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
 import "./CharacterModal.scss";
 
-export interface CharacterModalProps {
+export interface ICharacterModalProps {
   character: Character | null;
   isOpen: boolean;
   onClose: () => void;
@@ -20,7 +20,7 @@ export const CharacterModal = observer(
     isOpen,
     onClose,
     allowEditing = false,
-  }: CharacterModalProps) => {
+  }: ICharacterModalProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const [form] = Form.useForm();
 
@@ -34,21 +34,8 @@ export const CharacterModal = observer(
     })();
 
     if (!character) return null;
-              
-                              
 
     const isFavorite = favoritesStore.isFavorite(character.id);
-
-    useEffect(() => {
-      if (initialCharacter) {
-        form.setFieldsValue(initialCharacter);
-      }
-    }, [initialCharacter, form]);
-    useEffect(() => {
-      if (!isOpen) {
-        setIsEditing(false);
-      }
-    }, [isOpen]);
 
     // Todo: constants go to the top of the component,
     // firstly we have hook calls (unless required in certain order, u might need a constant to pass to the hook), then constants

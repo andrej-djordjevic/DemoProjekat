@@ -3,7 +3,7 @@ import { Header } from "../../Components/Header/Header";
 import { SubHeader } from "../../Components/SubHeader/SubHeader";
 import type { FilterParams } from "../../modules/characters";
 
-export interface CharacterListProps {
+export interface ICharacterListProps {
   filters: FilterParams;
   setFilters: React.Dispatch<React.SetStateAction<FilterParams>>;
 }
@@ -11,7 +11,7 @@ export interface CharacterListProps {
 export function CharacterList({
   filters,
   setFilters,
-}: CharacterListProps) {
+}: ICharacterListProps) {
   return (
     <div>
       <Header setFilters={setFilters} />

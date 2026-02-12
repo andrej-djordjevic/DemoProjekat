@@ -1,4 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
+import { USER_PROFILE_MOCK } from "./auth.mocks";
 
 export class AuthStore {
   isLoggedIn = false;
@@ -15,7 +16,9 @@ export class AuthStore {
 
     await new Promise((res) => setTimeout(res, 600));
 
-    const ok = username === "proba123proba" && password === "proba123proba";
+    const ok =
+      username === USER_PROFILE_MOCK.username &&
+      password === USER_PROFILE_MOCK.password;
 
     runInAction(() => {
       this.isLoggedIn = ok;

@@ -4,7 +4,7 @@ import { Table } from "antd";
 import { useState } from "react";
 import { CustomButton } from "../CustomButton/CustomButton";
 
-interface CharacterGridProps {
+interface ICharacterGridProps {
   characters: Character[];
   onCharacterClick: (character: Character) => void;
 }
@@ -12,7 +12,7 @@ interface CharacterGridProps {
 export const CharacterGrid = ({
   characters,
   onCharacterClick,
-}: CharacterGridProps) => {
+}: ICharacterGridProps) => {
   const [tableView, setTableView] = useState(false);
 
   const columns = [
