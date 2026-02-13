@@ -2,15 +2,10 @@ import "../Header/Header.scss";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 import { authStore } from "../../modules/auth/auth.store";
-import type { FilterParams } from "../../modules/characters";
 import { Layout, Menu } from "antd";
 import { LogoutOutlined, StarOutlined, HomeOutlined } from "@ant-design/icons";
 
-export interface IHeaderProps {
-  setFilters: (f: FilterParams) => void;
-}
-
-export const Header = observer(({ setFilters }: IHeaderProps) => {
+export const Header = observer(() => {
   const navigate = useNavigate();
 
   const logout = () => {
@@ -21,12 +16,6 @@ export const Header = observer(({ setFilters }: IHeaderProps) => {
     /* Todo: use ANTD header, incorporate it into the Layout.tsx component, you can also add a sidebar menu for navigation between the two pages */
   }
   const handleMenuClick = (e: { key: string }) => {
-    setFilters({
-      name: undefined,
-      species: undefined,
-      status: undefined,
-      gender: undefined,
-    });
     if (e.key === "home") {
       navigate("/");
     } else if (e.key === "favorites") {

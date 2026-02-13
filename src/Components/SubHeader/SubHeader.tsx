@@ -3,14 +3,14 @@ import { useEffect } from "react";
 import {
   genderOptions,
   statusOptions,
-  type FilterParams,
+  type IFilterParams,
 } from "../../modules/characters";
 import { Form, Input, Select } from "antd";
 import { CustomButton } from "../CustomButton/CustomButton";
 
 export interface ISubHeaderProps {
-  filters: FilterParams;
-  setFilters: (f: FilterParams) => void;
+  filters: IFilterParams;
+  setFilters: (f: IFilterParams) => void;
 }
 
 // Todo: turn this into filters component,pass filter config to it, it should consist of primarily
@@ -20,7 +20,7 @@ export const SubHeader = ({ filters, setFilters }: ISubHeaderProps) => {
 
   const [form] = Form.useForm();
 
-  const onFinish = (values: FilterParams) => {
+  const onFinish = (values: IFilterParams) => {
     setFilters({
       name: (values.name || "").trim(),
       species: (values.species || "").trim(),

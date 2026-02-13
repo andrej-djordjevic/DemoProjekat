@@ -1,28 +1,28 @@
-import type { Character, FilterParams } from "../characters";
+import type { ICharacter, IFilterParams } from "../characters";
 
-function filterByName(characters: Character[], name: string) {
+function filterByName(characters: ICharacter[], name: string) {
   return characters.filter((character) =>
     character.name.toLowerCase().includes(name.toLowerCase()),
   );
 }
-function filterBySpecies(characters: Character[], species: string) {
+function filterBySpecies(characters: ICharacter[], species: string) {
   return characters.filter((character) =>
     character.species?.toLowerCase().includes(species.toLowerCase()),
   );
 }
-function filterByStatus(characters: Character[], status: string) {
+function filterByStatus(characters: ICharacter[], status: string) {
   return characters.filter((character) =>
     character.status.toLowerCase().includes(status.toLowerCase()),
   );
 }
-function filterByGender(characters: Character[], gender: string) {
+function filterByGender(characters: ICharacter[], gender: string) {
   return characters.filter((character) =>
     character.gender.toLowerCase().includes(gender.toLowerCase()),
   );
 }
 
 export const charactersService = {
-  filterFavorites(characters: Character[], filters: FilterParams) {
+  filterFavorites(characters: ICharacter[], filters: IFilterParams) {
     let result = characters;
     if (filters?.name) result = filterByName(result, filters.name);
     if (filters?.species) result = filterBySpecies(result, filters.species);

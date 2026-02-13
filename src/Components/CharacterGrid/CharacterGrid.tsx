@@ -1,12 +1,12 @@
-import type { Character } from "../../modules/characters";
+import type { ICharacter } from "../../modules/characters";
 import "../../Components/Characters/Characters.scss";
 import { Table } from "antd";
 import { useState } from "react";
 import { CustomButton } from "../CustomButton/CustomButton";
 
 interface ICharacterGridProps {
-  characters: Character[];
-  onCharacterClick: (character: Character) => void;
+  characters: ICharacter[];
+  onCharacterClick: (character: ICharacter) => void;
 }
 
 export const CharacterGrid = ({
@@ -20,7 +20,7 @@ export const CharacterGrid = ({
       title: "Image",
       dataIndex: "image",
       key: "image",
-      render: (img: string, record: Character) => (
+      render: (img: string, record: ICharacter) => (
         <img
           src={img}
           alt={record.name}
@@ -53,7 +53,7 @@ export const CharacterGrid = ({
       dataIndex: ["location", "name"],
       key: "location",
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      render: (_: any, record: Character) => record.location?.name,
+      render: (_: any, record: ICharacter) => record.location?.name,
     },
   ];
 

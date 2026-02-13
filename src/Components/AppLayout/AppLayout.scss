@@ -1,0 +1,22 @@
+@use "../../Styles/variables" as *;
+
+.app-sider {
+  padding: 1rem 0;
+  background-color: $color-dark;
+}
+.app-sider nav ul {
+  list-style: none;
+  padding: 0;
+}
+.app-sider nav li {
+  margin: 1rem 0;
+}
+.app-sider nav a {
+  color: #c9c9c9;
+  text-decoration: none;
+  font-weight: 500;
+}
+.app-content {
+  padding: 2rem;
+  min-height: 100vh;
+}

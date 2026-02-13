@@ -12,3 +12,16 @@ body {
   background-size: 200% 200%;
   animation: galaxyMove 30s ease-in-out infinite;
 }
+
+.ant-layout,
+.ant-layout-sider
+
+ {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-dark .ant-menu-item-active {
+  background: rgba(255, 255, 255, 0.473) !important;
+}

@@ -1,9 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import type { Character } from "../characters";
-
+import type { ICharacter } from "../characters";
 
 export class FavoritesStore {
-  favorites: Character[] = [];
+  favorites: ICharacter[] = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -30,7 +29,7 @@ export class FavoritesStore {
     return this.favorites.some((char) => char.id === characterId);
   }
 
-  addToFavorites(character: Character) {
+  addToFavorites(character: ICharacter) {
     if (!this.isFavorite(character.id)) {
       runInAction(() => {
         this.favorites.push(character);
@@ -46,7 +45,7 @@ export class FavoritesStore {
     });
   }
 
-  toggleFavorite(character: Character) {
+  toggleFavorite(character: ICharacter) {
     if (this.isFavorite(character.id)) {
       this.removeFromFavorites(character.id);
     } else {
@@ -54,7 +53,7 @@ export class FavoritesStore {
     }
   }
 
-  updateFavorite(characterId: number, updatedCharacter: Character) {
+  updateFavorite(characterId: number, updatedCharacter: ICharacter) {
     runInAction(() => {
       const index = this.favorites.findIndex((char) => char.id === characterId);
       if (index !== -1) {
