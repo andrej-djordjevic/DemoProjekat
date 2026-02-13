@@ -1,7 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
-import type { ICharacter, IFilterParams } from "../../modules/characters";
 import { favoritesStore } from "../../modules/auth/favorites.store";
 import { SubHeader } from "../../Components/SubHeader/SubHeader";
 // import { Header } from "../../Components/Header/Header";
@@ -9,6 +8,10 @@ import { CharacterGrid } from "../../Components/CharacterGrid/CharacterGrid";
 import { CharacterModal } from "../../Components/CharacterModal/CharacterModal";
 import { charactersService } from "../../modules/characters/characters.service";
 import "./FavoritesPage.scss";
+import type {
+  ICharacter,
+  IFilterParams,
+} from "../../modules/characters/characters.types";
 
 export interface IFavoritesProps {
   filters: IFilterParams;

@@ -4,7 +4,7 @@ import {
   genderOptions,
   statusOptions,
   type IFilterParams,
-} from "../../modules/characters";
+} from "../../modules/characters/characters.types";
 import { Form, Input, Select } from "antd";
 import { CustomButton } from "../CustomButton/CustomButton";
 

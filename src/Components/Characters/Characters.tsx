@@ -2,7 +2,7 @@ import {
   type ICharacter,
   type IFilterParams,
   type IPageInfo,
-} from "../../modules/characters";
+} from "../../modules/characters/characters.types";
 import "./Characters.scss";
 import { useEffect, useRef, useState } from "react";
 import { Loader } from "../Loader/Loader";
@@ -48,14 +48,14 @@ export const Characters = ({ filters }: { filters?: IFilterParams }) => {
 
       const result = await getCharacters(page, filters || {});
 
-      if (result.error) {
-        setCharacters([]);
-        setInfo(null);
-        setError(result.error);
-      } else if (result.data) {
-        setCharacters(result.data.results);
-        setInfo(result.data.info);
-      }
+      // if (result.data) {
+      //   setCharacters([]);
+      //   setInfo(null);
+      //   setError(result.error);
+      // } else if (result.data) {
+      setCharacters(result.data.results);
+      setInfo(result.data.info);
+      // }
 
       setLoading(false);
     };

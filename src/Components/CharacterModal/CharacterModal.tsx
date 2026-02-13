@@ -1,5 +1,8 @@
-import type { ICharacter } from "../../modules/characters";
-import { genderOptions, statusOptions } from "../../modules/characters";
+import {
+  genderOptions,
+  statusOptions,
+  type ICharacter,
+} from "../../modules/characters/characters.types";
 import { favoritesStore } from "../../modules/auth/favorites.store";
 import { observer } from "mobx-react-lite";
 import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from "react-icons/fa";
