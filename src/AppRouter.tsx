@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import type { IFilterParams } from "./modules/characters";
+
+import type { IFilterParams } from "./modules/characters/characters.types";
 // import { ProtectedLayout } from "./ProtectedLayout";
 import { AppLayout } from "./Components/AppLayout/AppLayout";
 import { Suspense, useState } from "react";

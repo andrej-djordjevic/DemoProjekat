@@ -11,7 +11,7 @@
   border-radius: 4px;
 }
 
-.search-Btn {
+@mixin btn-style {
   background-color: white;
   color: black;
   border: 2px solid #bfbfbf;
@@ -22,6 +22,13 @@
     color: $primary-color-hover !important;
     border-color: $primary-color-hover !important;
   }
+}
+
+.search-Btn {
+  @include btn-style;
+}
+.clear-Btn {
+  @include btn-style;
 }
 
 .toggle-tableView-Btn {

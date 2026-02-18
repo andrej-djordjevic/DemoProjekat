@@ -2,15 +2,15 @@
 .subHeader {
   width: 100%;
   padding: 10px;
-  border: 2px solid #000;
+  min-width: 190px;
+  border: 2px solid #3b3b3b;
   box-sizing: border-box;
+  border-radius: 10px;
   gap: 10px;
-
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, auto);
 }
-
 
 .filterInput:nth-child(1) {
   grid-column: 1;
@@ -28,10 +28,6 @@
   grid-column: 2;
   grid-row: 2;
 }
-.searchBtn {
-  grid-column: 3;
-  grid-row: 1;
-}
 
 @include desktop(601px) {
   .subHeader {
@@ -39,11 +35,14 @@
     grid-template-rows: auto;
   }
 
+  .clear-Btn {
+    margin-left: 225%;
+  }
+
   .filterInput:nth-child(1),
   .filterInput:nth-child(2),
   .filterInput:nth-child(3),
-  .filterInput:nth-child(4),
-  .searchBtn {
+  .filterInput:nth-child(4) {
     grid-column: auto;
     grid-row: auto;
   }

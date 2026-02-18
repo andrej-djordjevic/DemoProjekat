@@ -1,12 +1,13 @@
 import type { Dispatch, SetStateAction } from "react";
 import { observer } from "mobx-react-lite";
-import { useState } from "react";
+import { charactersStore } from "../../modules/characters/characters.store";
 import { favoritesStore } from "../../modules/auth/favorites.store";
 import { SubHeader } from "../../Components/SubHeader/SubHeader";
 // import { Header } from "../../Components/Header/Header";
 import { CharacterGrid } from "../../Components/CharacterGrid/CharacterGrid";
 import { CharacterModal } from "../../Components/CharacterModal/CharacterModal";
 import { charactersService } from "../../modules/characters/characters.service";
+import { modalStore } from "../../modules/CharacterModal/modal.store";
 import "./FavoritesPage.scss";
 import type {
   ICharacter,
@@ -20,21 +21,14 @@ export interface IFavoritesProps {
 
 export const Favorites = observer(
   ({ filters, setFilters }: IFavoritesProps) => {
-    // Todo: move to character.store
-    const [selectedCharacter, setSelectedCharacter] =
-      useState<ICharacter | null>(null);
-
-    // Todo: make modal module with store and types
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
     const handleCharacterClick = (character: ICharacter) => {
-      setSelectedCharacter(character);
-      setIsModalOpen(true);
+      charactersStore.setSelectedCharacter(character);
+      modalStore.open();
     };
 
     const handleCloseModal = () => {
-      setIsModalOpen(false);
-      setSelectedCharacter(null);
+      modalStore.close();
+      charactersStore.setSelectedCharacter(null);
     };
 
     const filteredFavorites = charactersService.filterFavorites(
@@ -66,8 +60,8 @@ export const Favorites = observer(
           )}
         </div>
         <CharacterModal
-          character={selectedCharacter}
-          isOpen={isModalOpen}
+          character={charactersStore.selectedCharacter}
+          isOpen={modalStore.isOpen}
           onClose={handleCloseModal}
           allowEditing={true}
         />

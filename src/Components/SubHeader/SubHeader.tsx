@@ -16,8 +16,6 @@ export interface ISubHeaderProps {
 // Todo: turn this into filters component,pass filter config to it, it should consist of primarily
 // filterkey, filterType and all the other props neccessary for specific stuff lice date / select and so on
 export const SubHeader = ({ filters, setFilters }: ISubHeaderProps) => {
-  // Why do we set filters here as well as in the parent component can't we just reuse the filters values from the props?
-
   const [form] = Form.useForm();
 
   const onFinish = (values: IFilterParams) => {
@@ -34,8 +32,6 @@ export const SubHeader = ({ filters, setFilters }: ISubHeaderProps) => {
   }, [filters, form]);
 
   return (
-    // Use antd form it has all the good stuff like custom field rules, validation of form fields, helpers like set data clear data etc etc
-    // for more control
     <Form
       className="subHeader"
       form={form}
@@ -46,7 +42,7 @@ export const SubHeader = ({ filters, setFilters }: ISubHeaderProps) => {
       <Form.Item name="name">
         <Input className="filterInput" placeholder="NAME" allowClear />
       </Form.Item>
-      <Form.Item name="species">
+      <Form.Item name="species" rules={[{ min: 3 }]}>
         <Input className="filterInput" placeholder="SPECIES" allowClear />
       </Form.Item>
       <Form.Item name="status">
@@ -68,6 +64,17 @@ export const SubHeader = ({ filters, setFilters }: ISubHeaderProps) => {
       <Form.Item>
         <CustomButton className="search-Btn" htmlType="submit">
           SEARCH
+        </CustomButton>
+      </Form.Item>
+      <Form.Item>
+        <CustomButton
+          className="clear-Btn"
+          htmlType="button"
+          onClick={() => {
+            form.resetFields();
+          }}
+        >
+          CLEAR ALL FILTERS
         </CustomButton>
       </Form.Item>
     </Form>

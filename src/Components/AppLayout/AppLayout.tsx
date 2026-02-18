@@ -29,7 +29,7 @@ export function AppLayout() {
     <Layout style={{ minHeight: "100vh" }}>
       <Header />
       <Layout>
-        <Sider width={200} className="app-sider">
+        <Sider width={120} className="app-sider">
           <nav>
             <Menu
               mode="vertical"
