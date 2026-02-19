@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import type { IFilterParams } from "./modules/characters/characters.types";
-// import { ProtectedLayout } from "./ProtectedLayout";
 import { AppLayout } from "./Components/AppLayout/AppLayout";
 import { Suspense, useState } from "react";
 import "./Styles/main.scss";
@@ -17,10 +16,6 @@ function AppRouter() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<Login />} />
-          {/* Todo: use a layout component that handles Header Sidebar and Content */}
-          {/* UNCOMENT FOR REMOVING LAYOUT */}
-          {/* <Route element={<ProtectedLayout />}> */}
-
           <Route element={<AppLayout />}>
             <Route
               path="/"

@@ -1,5 +1,3 @@
-// Todo: move all the logic into the characters module , look for examples inside e-takse-front project on factoryww github
-
 import { makeAutoObservable } from "mobx";
 import type { ICharacter } from "./characters.types";
 

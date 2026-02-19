@@ -74,7 +74,7 @@ export const SubHeader = ({ filters, setFilters }: ISubHeaderProps) => {
             form.resetFields();
           }}
         >
-          CLEAR ALL FILTERS
+          CLEAR
         </CustomButton>
       </Form.Item>
     </Form>

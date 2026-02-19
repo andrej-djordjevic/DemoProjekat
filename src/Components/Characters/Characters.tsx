@@ -10,6 +10,7 @@ import { CharacterGrid } from "../CharacterGrid/CharacterGrid";
 import { Pagination } from "../Pagination/Pagination";
 import { CharacterModal } from "../CharacterModal/CharacterModal";
 import { getCharacters } from "../../modules/characters/characters.repo";
+import { modalStore } from "../../modules/CharacterModal/modal.store";
 
 export const Characters = ({ filters }: { filters?: IFilterParams }) => {
   // Todo: Use MOBX store as much as you can
@@ -23,17 +24,15 @@ export const Characters = ({ filters }: { filters?: IFilterParams }) => {
   const [selectedCharacter, setSelectedCharacter] = useState<ICharacter | null>(
     null,
   );
-  // Todo: create modal store and use it alongside custom variant of ANTD modal component to render modals effortlessly
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const skipNextFetch = useRef(false);
 
   const handleCharacterClick = (character: ICharacter) => {
     setSelectedCharacter(character);
-    setIsModalOpen(true);
+    modalStore.open();
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
+    modalStore.close();
     setSelectedCharacter(null);
   };
 
@@ -48,14 +47,8 @@ export const Characters = ({ filters }: { filters?: IFilterParams }) => {
 
       const result = await getCharacters(page, filters || {});
 
-      // if (result.data) {
-      //   setCharacters([]);
-      //   setInfo(null);
-      //   setError(result.error);
-      // } else if (result.data) {
       setCharacters(result.data.results);
       setInfo(result.data.info);
-      // }
 
       setLoading(false);
     };
@@ -81,7 +74,7 @@ export const Characters = ({ filters }: { filters?: IFilterParams }) => {
 
       <CharacterModal
         character={selectedCharacter}
-        isOpen={isModalOpen}
+        isOpen={modalStore.isOpen}
         onClose={handleCloseModal}
       />
     </div>

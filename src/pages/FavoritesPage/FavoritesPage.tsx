@@ -3,7 +3,6 @@ import { observer } from "mobx-react-lite";
 import { charactersStore } from "../../modules/characters/characters.store";
 import { favoritesStore } from "../../modules/auth/favorites.store";
 import { SubHeader } from "../../Components/SubHeader/SubHeader";
-// import { Header } from "../../Components/Header/Header";
 import { CharacterGrid } from "../../Components/CharacterGrid/CharacterGrid";
 import { CharacterModal } from "../../Components/CharacterModal/CharacterModal";
 import { charactersService } from "../../modules/characters/characters.service";
@@ -38,8 +37,6 @@ export const Favorites = observer(
 
     return (
       <div>
-        {/* UNCOMENT FOR REMOVING LAYOUT */}
-        {/* <Header setFilters={setFilters} /> */}
         <SubHeader filters={filters} setFilters={setFilters} />
         <div>
           <h1 className="favorites-title">My Favorites</h1>
