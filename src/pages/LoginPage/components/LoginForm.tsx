@@ -1,8 +1,9 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input } from "antd";
 import { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { authStore } from "../../../modules/auth/auth.store";
 import { USER_PROFILE_MOCK } from "../../../modules/auth/auth.mocks";
+import { CustomButton } from "../../../Components/CustomButton/CustomButton";
 
 type LoginFormProps = {
   onSuccess: () => void;
@@ -53,9 +54,9 @@ export const LoginForm = observer(({ onSuccess }: LoginFormProps) => {
       )}
 
       <Form.Item>
-        <Button className="login-button" htmlType="submit" block>
+        <CustomButton className="login-button" htmlType="submit" block>
           {authStore.loading ? "..." : "LOG IN"}
-        </Button>
+        </CustomButton>
       </Form.Item>
     </Form>
   );

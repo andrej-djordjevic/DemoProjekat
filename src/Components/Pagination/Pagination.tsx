@@ -1,6 +1,6 @@
 import React from "react";
 import { Pagination as AntdPagination } from "antd";
-import "./Pagination.scss";
+import styles from "./Pagination.module.scss";
 
 export interface IPaginationProps {
   page: number;
@@ -16,7 +16,7 @@ export const Pagination: React.FC<IPaginationProps> = ({
   className,
 }) => {
   return (
-    <div className={className ?? "pagination"}>
+    <div className={className ?? styles.pagination}>
       <AntdPagination
         current={page}
         total={totalPages}
@@ -26,7 +26,7 @@ export const Pagination: React.FC<IPaginationProps> = ({
         hideOnSinglePage={true}
         showQuickJumper
         showTotal={() => `Page ${page} of ${totalPages}`}
-        className={"custom-pagination-antd"}
+        className={`${styles["custom-pagination-antd"]}`}
       />
     </div>
   );

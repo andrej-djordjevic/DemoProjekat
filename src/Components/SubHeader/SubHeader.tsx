@@ -1,4 +1,4 @@
-import "./SubHeader.scss";
+import styles from "./SubHeader.module.scss";
 import { useEffect } from "react";
 import {
   genderOptions,
@@ -7,6 +7,7 @@ import {
 } from "../../modules/characters/characters.types";
 import { Form, Input, Select } from "antd";
 import { CustomButton } from "../CustomButton/CustomButton";
+import buttonStyles from "../CustomButton/CustomButton.module.scss";
 
 export interface ISubHeaderProps {
   filters: IFilterParams;
@@ -33,42 +34,32 @@ export const SubHeader = ({ filters, setFilters }: ISubHeaderProps) => {
 
   return (
     <Form
-      className="subHeader"
+      className={styles.subHeader}
       form={form}
       layout="inline"
       onFinish={onFinish}
       initialValues={filters}
     >
       <Form.Item name="name">
-        <Input className="filterInput" placeholder="NAME" allowClear />
+        <Input placeholder="NAME" allowClear />
       </Form.Item>
       <Form.Item name="species" rules={[{ min: 3 }]}>
-        <Input className="filterInput" placeholder="SPECIES" allowClear />
+        <Input placeholder="SPECIES" allowClear />
       </Form.Item>
       <Form.Item name="status">
-        <Select
-          className="filterInput"
-          placeholder="STATUS"
-          allowClear
-          options={statusOptions}
-        />
+        <Select placeholder="STATUS" allowClear options={statusOptions} />
       </Form.Item>
       <Form.Item name="gender">
-        <Select
-          className="filterInput"
-          placeholder="GENDER"
-          allowClear
-          options={genderOptions}
-        />
+        <Select placeholder="GENDER" allowClear options={genderOptions} />
       </Form.Item>
       <Form.Item>
-        <CustomButton className="search-Btn" htmlType="submit">
+        <CustomButton className={buttonStyles.searchBtn} htmlType="submit">
           SEARCH
         </CustomButton>
       </Form.Item>
       <Form.Item>
         <CustomButton
-          className="clear-Btn"
+          className={buttonStyles.clearBtn}
           htmlType="button"
           onClick={() => {
             form.resetFields();

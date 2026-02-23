@@ -3,7 +3,6 @@ import {
   type IFilterParams,
   type IPageInfo,
 } from "../../modules/characters/characters.types";
-import "./Characters.scss";
 import { useEffect, useRef, useState } from "react";
 import { Loader } from "../Loader/Loader";
 import { CharacterGrid } from "../CharacterGrid/CharacterGrid";

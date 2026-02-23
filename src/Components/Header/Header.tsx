@@ -1,4 +1,4 @@
-import "../Header/Header.scss";
+import styles from "../Header/Header.module.scss";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 import { authStore } from "../../modules/auth/auth.store";
@@ -26,20 +26,11 @@ export const Header = observer(() => {
   };
 
   return (
-    <Layout.Header
-      className="app-header"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: 0,
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+    <Layout.Header className={styles["app-header"]}>
+      <div>
         <img
           src="../../public/Logo.png"
-          className="logo"
-          style={{ height: 48, cursor: "pointer" }}
+          className={styles.logo}
           onClick={() => handleMenuClick({ key: "home" })}
         />
       </div>

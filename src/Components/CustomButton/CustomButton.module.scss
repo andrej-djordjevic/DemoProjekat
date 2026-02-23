@@ -1,6 +1,6 @@
 @use "../../Styles/variables" as *;
 
-.toggle-center {
+.toggleCenter {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,14 +24,14 @@
   }
 }
 
-.search-Btn {
+.searchBtn {
   @include btn-style;
 }
-.clear-Btn {
+.clearBtn {
   @include btn-style;
 }
 
-.toggle-tableView-Btn {
+.toggleTableViewBtn {
   background-color: $primary-color;
   margin: 10px;
   color: white;

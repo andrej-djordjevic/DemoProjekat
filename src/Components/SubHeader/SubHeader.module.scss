@@ -1,0 +1,21 @@
+@use "../../Styles/mixins" as *;
+
+.subHeader {
+  width: 100%;
+  padding: 10px;
+  min-width: 190px;
+  border: 2px solid #3b3b3b;
+  box-sizing: border-box;
+  border-radius: 10px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, auto);
+}
+
+@include desktop(801px) {
+  .subHeader {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+  }
+}

@@ -7,9 +7,10 @@ import { favoritesStore } from "../../modules/auth/favorites.store";
 import { observer } from "mobx-react-lite";
 import { FaHeart, FaRegHeart, FaEdit, FaSave, FaTimes } from "react-icons/fa";
 import { useState } from "react";
-import { Modal, Form, Button } from "antd";
+import { Modal, Form } from "antd";
 import { FieldRender } from "./FieldRender";
-import "./CharacterModal.scss";
+import styles from "./CharacterModal.module.scss";
+import { CustomButton } from "../CustomButton/CustomButton";
 
 export interface ICharacterModalProps {
   character: ICharacter | null;
@@ -73,45 +74,45 @@ export const CharacterModal = observer(
         className="modal-centered"
       >
         <Form form={form}>
-          <div className="modal-content">
+          <div className={styles["modal-content"]}>
             <img
               src={character.image}
               alt={character.name}
-              className="modal-image"
+              className={styles["modal-image"]}
             />
-            <div className="modal-header">
+            <div className={styles["modal-header"]}>
               <FieldRender
                 editing={isEditing}
                 name="name"
-                className="name-input"
+                className={styles["name-input"]}
                 renderDisplay={() => <h2>{character.name}</h2>}
               />
-              <div className="modal-actions">
+              <div className={styles["modal-actions"]}>
                 {isFavorite && !isEditing && allowEditing && (
-                  <Button
+                  <CustomButton
                     type="text"
                     icon={<FaEdit />}
                     onClick={handleEditClick}
-                    className="edit-button"
+                    className={styles["edit-button"]}
                   />
                 )}
                 {isEditing && (
                   <>
-                    <Button
+                    <CustomButton
                       type="primary"
                       icon={<FaSave />}
                       onClick={handleSaveEdit}
-                      className="save-button"
+                      className={styles["save-button"]}
                     />
-                    <Button
+                    <CustomButton
                       type="text"
                       icon={<FaTimes />}
                       onClick={handleCancelEdit}
-                      className="cancel-button"
+                      className={styles["cancel-button"]}
                     />
                   </>
                 )}
-                <Button
+                <CustomButton
                   type="text"
                   icon={
                     isFavorite ? (
@@ -125,62 +126,64 @@ export const CharacterModal = observer(
                 />
               </div>
             </div>
-            <div className="character-details">
-              <div className="detail-item">
-                <span className="detail-label">Gender:</span>
+            <div className={styles["character-details"]}>
+              <div className={styles["detail-item"]}>
+                <span className={styles["detail-label"]}>Gender:</span>
                 <FieldRender
                   editing={isEditing}
                   name="gender"
                   fieldType="select"
-                  className="edit-input"
+                  className={styles["edit-input"]}
                   options={genderOptions}
                   renderDisplay={() => (
                     <span
-                      className={`detail-value gender-${character.gender.toLowerCase()}`}
+                      className={`${styles["detail-value"]} ${styles[`gender-${character.gender.toLowerCase()}`]}`}
                     >
                       {character.gender}
                     </span>
                   )}
                 />
               </div>
-              <div className="detail-item">
-                <span className="detail-label">Species:</span>
+              <div className={styles["detail-item"]}>
+                <span className={styles["detail-label"]}>Species:</span>
                 <FieldRender
                   editing={isEditing}
                   name="species"
-                  className="edit-input"
+                  className={styles["edit-input"]}
                   placeholder="Species"
                   renderDisplay={() => (
-                    <span className="detail-value">{character.species}</span>
+                    <span className={`${styles["detail-value"]}`}>
+                      {character.species}
+                    </span>
                   )}
                 />
               </div>
-              <div className="detail-item">
-                <span className="detail-label">Status:</span>
+              <div className={styles["detail-item"]}>
+                <span className={styles["detail-label"]}>Status:</span>
                 <FieldRender
                   editing={isEditing}
                   name="status"
                   fieldType="select"
-                  className="edit-input"
+                  className={styles["edit-input"]}
                   options={statusOptions}
                   renderDisplay={() => (
                     <span
-                      className={`detail-value status-${character.status.toLowerCase()}`}
+                      className={`${styles["detail-value"]} ${styles[`status-${character.status.toLowerCase()}`]}`}
                     >
                       {character.status}
                     </span>
                   )}
                 />
               </div>
-              <div className="detail-item">
-                <span className="detail-label">Location:</span>
+              <div className={styles["detail-item"]}>
+                <span className={styles["detail-label"]}>Location:</span>
                 <FieldRender
                   editing={isEditing}
                   name={["location", "name"]}
-                  className="edit-input"
+                  className={styles["edit-input"]}
                   placeholder="Location"
                   renderDisplay={() => (
-                    <span className="detail-value">
+                    <span className={styles["detail-value"]}>
                       {character.location.name}
                     </span>
                   )}

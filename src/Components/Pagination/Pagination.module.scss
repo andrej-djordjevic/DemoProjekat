@@ -3,17 +3,28 @@
 .pagination {
   background: none;
 }
+:global(.subHeader) {
+  width: 100%;
+  padding: 10px;
+  min-width: 190px;
+  border: 200px solid #3b3b3b !important;
+  box-sizing: border-box;
+  border-radius: 10px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, auto);
+}
 
 .custom-pagination-antd {
   background-color: #b300ff;
   padding: 16px;
   border-radius: 36px;
-
   display: flex;
   justify-content: center;
   margin: 20px 0;
 
-  .ant-pagination-item {
+  :global(.ant-pagination-item) {
     border-radius: 100px;
     border-color: $primary-color;
     color: $primary-color;

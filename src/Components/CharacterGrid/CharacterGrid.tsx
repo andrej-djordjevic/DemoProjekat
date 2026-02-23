@@ -1,5 +1,6 @@
-import type { ICharacter } from "../../modules/characters";
-import "../../Components/Characters/Characters.scss";
+import type { ICharacter } from "../../modules/characters/characters.types";
+import styles from "../../Components/Characters/Characters.module.scss";
+import styles2 from "../../Components/CustomButton/CustomButton.module.scss";
 import { Table } from "antd";
 import { useState } from "react";
 import { CustomButton } from "../CustomButton/CustomButton";
@@ -59,9 +60,9 @@ export const CharacterGrid = ({
 
   return (
     <div>
-      <div className="toggle-center">
+      <div className={styles2.toggleCenter}>
         <CustomButton
-          className="toggle-tableView-Btn"
+          className={styles2.toggleTableViewBtn}
           onClick={() => setTableView((v) => !v)}
         >
           Switch to {tableView ? "Grid" : "Table"} View
@@ -79,15 +80,15 @@ export const CharacterGrid = ({
           })}
         />
       ) : (
-        <div className="charactersGrid">
+        <div className={styles.charactersGrid}>
           {characters.map((character) => (
             <div
               key={character.id}
-              className="character-card"
+              className={styles.characterCard}
               onClick={() => onCharacterClick(character)}
             >
               <img
-                className="characterImage"
+                className={styles.characterImage}
                 src={character.image}
                 alt={character.name}
               />
